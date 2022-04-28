@@ -1,5 +1,0 @@
-# vscode extension
-vscode-styled-components 
-
-# styled components
-npm i styled-components
