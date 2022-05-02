@@ -29,3 +29,12 @@ npm i --save-dev @types/react-helmet
 
 # 상태 관리 리코일
 npm install recoil
+
+# 리액트 부트스트랩 설치
+npm install react-bootstrap bootstrap
+
+# fontawesome 설치
+npm i --save @fortawesome/fontawesome-svg-core  @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome
+
+# reactstrap 설치
+npm i --save reactstrap
