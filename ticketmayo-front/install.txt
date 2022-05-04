@@ -38,3 +38,4 @@ npm i --save @fortawesome/fontawesome-svg-core  @fortawesome/free-solid-svg-icon
 
 # reactstrap 설치
 npm i --save reactstrap
+npm i --save-dev @types/reactstrap
