@@ -35,7 +35,10 @@ npm install react-bootstrap bootstrap
 
 # fontawesome 설치
 npm i --save @fortawesome/fontawesome-svg-core  @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome
+npm i --save @fortawesome/free-regular-svg-icons
 
 # reactstrap 설치
 npm i --save reactstrap
 npm i --save-dev @types/reactstrap
+
+# react-hook form 설치

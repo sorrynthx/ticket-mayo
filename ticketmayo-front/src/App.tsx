@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Router from './routes/Router';
 import { createGlobalStyle } from 'styled-components';
+import { HelmetProvider } from 'react-helmet-async';
 
 // reset css
 const GlobalStyle = createGlobalStyle`
@@ -55,7 +56,7 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
   body {
-    background-color: #FFE5EC;
+    background-color: #fff;
     font-family: 'Do Hyeon', sans-serif;
   }
   a {
@@ -69,7 +70,9 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <Router />
+      <HelmetProvider>
+        <Router />
+      </HelmetProvider>
     </>
   );
 }

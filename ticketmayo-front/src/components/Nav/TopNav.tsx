@@ -3,14 +3,11 @@ import {NavLink} from 'react-router-dom';
 import styled from 'styled-components';
 
 const TopNavDiv = styled.div `
-  background-color: #FB6F92;
+  background-color: #fff;
 `;
 
-const TopNavText = styled.div `
-  color: #fff;
-`
 const TopNavA = styled.a `
-  color: #fff !important;
+  color: #000000 !important;
 `
 
 function TopNav() {
@@ -23,18 +20,18 @@ function TopNav() {
 
                 <Nav className="ml-auto">
                     <NavItem>
-                        <NavLink to="/yes24" className="nav-link">
-                            <TopNavText>예스24</TopNavText>
+                        <NavLink to="/yes24" className="nav-link" style={({isActive}) => (isActive ? {color: '#FF8FAB', background: '#f0f0f0'} : {color: '#000000'})}>
+                            예스24
                         </NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink to="/interpark" className="nav-link">
-                            <TopNavText>인터파크</TopNavText>
+                        <NavLink to="/interpark" className="nav-link" style={({isActive}) => (isActive ? {color: '#FF8FAB', background: '#f0f0f0'} : {color: '#000000'})}>
+                            인터파크
                         </NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink to="/myCargo" className="nav-link">
-                            <TopNavText>내 창고</TopNavText>
+                        <NavLink to="/myCargo" className="nav-link" style={({isActive}) => (isActive ? {color: '#FF8FAB', background: '#f0f0f0'} : {color: '#000000'})}>
+                            내 창고
                         </NavLink>
                     </NavItem>
                 </Nav>
