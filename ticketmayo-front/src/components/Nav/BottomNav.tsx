@@ -1,5 +1,5 @@
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faTicket, faHome, faTicketSimple, faCircleUser} from '@fortawesome/free-solid-svg-icons';
+import {faTicket, faHome, faTicketSimple, faCircleUser, faKeyboard} from '@fortawesome/free-solid-svg-icons';
 import {Nav, NavItem} from 'reactstrap';
 import {NavLink} from 'react-router-dom';
 import styled from 'styled-components';
@@ -14,6 +14,10 @@ const tabs = [
         icon: faTicket,
         label: ""
     }, {
+        route: "/community",
+        icon: faKeyboard,
+        label: ""
+    }, {
         route: "/Interpark",
         icon: faTicketSimple,
         label: ""
@@ -25,13 +29,9 @@ const tabs = [
 ];
 
 const BottomNavDiv = styled.div `
-  background-color: #FB6F92;
+  background-color: #fff;
   
 `;
-
-const BottomNavText = styled.div `
-  color: #fff;
-`
 
 function BottomNav() {
     return (
@@ -44,11 +44,12 @@ function BottomNav() {
                     {
                         tabs.map((tab, index) => (
                             <NavItem key={`tab-${index}`}>
-                                <NavLink to={tab.route} className="nav-link">
-                                    <BottomNavText className="row justify-content-center align-items-center">
+                                <NavLink to={tab.route} className="nav-link" 
+                                    style={({isActive}) => (isActive ? {color: '#FF8FAB', background: '#f0f0f0'} : {color: '#000000'})}> 
+                                    <div className="row justify-content-center align-items-center">
                                         <FontAwesomeIcon size="lg" icon={tab.icon}/>
                                         <div className='text-center'>{tab.label}</div>
-                                    </BottomNavText>
+                                    </div>
                                 </NavLink>
                             </NavItem>
                         ))
