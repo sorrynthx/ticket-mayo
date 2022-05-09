@@ -10,16 +10,12 @@ const tabs = [
         icon: faHome,
         label: ""
     }, {
-        route: "/yes24",
+        route: "/play",
         icon: faTicket,
         label: ""
     }, {
         route: "/community",
         icon: faKeyboard,
-        label: ""
-    }, {
-        route: "/Interpark",
-        icon: faTicketSimple,
         label: ""
     }, {
         route: "/myCargo",

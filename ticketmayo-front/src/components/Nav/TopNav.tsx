@@ -20,13 +20,13 @@ function TopNav() {
 
                 <Nav className="ml-auto">
                     <NavItem>
-                        <NavLink to="/yes24" className="nav-link" style={({isActive}) => (isActive ? {color: '#FF8FAB', background: '#f0f0f0'} : {color: '#000000'})}>
-                            예스24
+                        <NavLink to="/play" className="nav-link" style={({isActive}) => (isActive ? {color: '#FF8FAB', background: '#f0f0f0'} : {color: '#000000'})}>
+                            공연
                         </NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink to="/interpark" className="nav-link" style={({isActive}) => (isActive ? {color: '#FF8FAB', background: '#f0f0f0'} : {color: '#000000'})}>
-                            인터파크
+                        <NavLink to="/community" className="nav-link" style={({isActive}) => (isActive ? {color: '#FF8FAB', background: '#f0f0f0'} : {color: '#000000'})}>
+                            커뮤니티
                         </NavLink>
                     </NavItem>
                     <NavItem>
