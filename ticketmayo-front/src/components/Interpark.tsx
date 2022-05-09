@@ -3,19 +3,7 @@ import styled from "styled-components";
 import {faStar} from '@fortawesome/free-solid-svg-icons';
 import {faStar as faStarEmpty} from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-const Container = styled.div`
-    padding: 0px 20px;
-    max-width: 485px;
-    margin: 0 auto;
-`;
-
-const Header = styled.header`
-    height: 10vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-`;
+import { Link, Outlet } from "react-router-dom";
 
 const PlayList = styled.div`
     padding-bottom: 100px;
@@ -26,6 +14,11 @@ const Play = styled.div`
     align-items: center;
     border-bottom: 1px solid hsla(0,0%,65.5%,.2);
     padding-bottom: 10px;
+    a {
+        width: 100%;
+        display: inherit;
+        &:hover {color: #000}
+    }
 `;
 
 const PlayText = styled.div`
@@ -130,37 +123,37 @@ const playDatas = [
 
 function Interpark() {
     return (
-        <Container>
+        <>   
             <Helmet>
                 <title>티켓마요-인터파크 공연</title>
             </Helmet>
-            <Header>인터파크</Header>
-            
             <PlayList>
                 {playDatas.map((play) => (
                     <Play key={play.id}>
-                        <Img src={play.img} />
-                        <PlayText>
-                            <PlayTitle>{play.title}</PlayTitle>
-                            <ul>
-                                <li className="open">{play.open}</li>
-                                <li className="playLoc">{play.playLoc}</li>
-                            </ul>
-                            <div className="rating">
-                                <FontAwesomeIcon icon={faStar} />
-                                <FontAwesomeIcon icon={faStar} />
-                                <FontAwesomeIcon icon={faStar} />
-                                <FontAwesomeIcon icon={faStar} />
-                                <FontAwesomeIcon icon={faStarEmpty} />
-                                {/* {play.rating} */}
-                            </div>    
-                        </PlayText>
+                        <Link to={`${play.id}/detail`}>
+                            <Img src={play.img} />
+                            <PlayText>
+                                <PlayTitle>{play.title}</PlayTitle>
+                                <ul>
+                                    <li className="open">{play.open}</li>
+                                    <li className="playLoc">{play.playLoc}</li>
+                                </ul>
+                                <div className="rating">
+                                    <FontAwesomeIcon icon={faStar} />
+                                    <FontAwesomeIcon icon={faStar} />
+                                    <FontAwesomeIcon icon={faStar} />
+                                    <FontAwesomeIcon icon={faStar} />
+                                    <FontAwesomeIcon icon={faStarEmpty} />
+                                    {/* {play.rating} */}
+                                </div>    
+                            </PlayText>
+                        </Link>
+                        <Outlet context={{}} />
                     </Play>
                 ))}
 
-            </PlayList>
-            
-        </Container>
+            </PlayList>  
+        </>
     );
 };
 
