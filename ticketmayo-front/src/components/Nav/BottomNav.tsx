@@ -1,5 +1,5 @@
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faTicket, faHome, faTicketSimple, faCircleUser, faKeyboard} from '@fortawesome/free-solid-svg-icons';
+import {faTicket, faHome, faCircleUser, faKeyboard} from '@fortawesome/free-solid-svg-icons';
 import {Nav, NavItem} from 'reactstrap';
 import {NavLink} from 'react-router-dom';
 import styled from 'styled-components';
