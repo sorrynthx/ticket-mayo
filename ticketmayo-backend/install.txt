@@ -1,0 +1,12 @@
+
+npm i express
+
+npm i cookie-parser
+
+npm i errorhandler
+
+npm i express-error-handler
+
+npm i cors
+
+npm i node-fetch

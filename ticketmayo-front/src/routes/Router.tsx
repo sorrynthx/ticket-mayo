@@ -4,12 +4,14 @@ import Community from '../components/Community';
 import Home from '../components/Home';
 import Interpark from '../components/Interpark';
 import Login from '../components/Login';
+import LoginNaver from '../components/LoginNaver';
+import LoginNaverCallback from '../components/LoginNaverCallback';
 import MyCargo from '../components/MyCargo';
-import MyCargo_Faq from '../components/MyCargo_Faq';
-import MyCargo_My from '../components/MyCargo_My';
-import MyCargo_Notice from '../components/MyCargo_Notice';
-import MyCargo_Partnership from '../components/MyCargo_Partnership';
-import MyCargo_Theme from '../components/MyCargo_Theme';
+import MyCargoFaq from '../components/MyCargoFaq';
+import MyCargoMy from '../components/MyCargoMy';
+import MyCargoNotice from '../components/MyCargoNotice';
+import MyCargoPartnership from '../components/MyCargoPartnership';
+import MyCargoTheme from '../components/MyCargoTheme';
 import Navigation from '../components/Nav/Navigation';
 import Play from '../components/Play';
 import PlayDetail from '../components/PlayDetail';
@@ -31,13 +33,15 @@ function Router() {
                 <Route path="/community" element={<Community />} />
                 
                 <Route path="/myCargo" element={<MyCargo />} />
-                <Route path="/myCargo/My" element={<MyCargo_My />} />
-                <Route path="/myCargo/Theme" element={<MyCargo_Theme />} />
-                <Route path="/myCargo/Notice" element={<MyCargo_Notice />} />
-                <Route path="/myCargo/Faq" element={<MyCargo_Faq />} />
-                <Route path="/myCargo/Partnership" element={<MyCargo_Partnership />} />
+                <Route path="/myCargo/My" element={<MyCargoMy />} />
+                <Route path="/myCargo/Theme" element={<MyCargoTheme />} />
+                <Route path="/myCargo/Notice" element={<MyCargoNotice />} />
+                <Route path="/myCargo/Faq" element={<MyCargoFaq />} />
+                <Route path="/myCargo/Partnership" element={<MyCargoPartnership />} />
 
                 <Route path="/login" element={<Login />} />
+                <Route path="/loginNaver" element={<LoginNaver />} />
+                <Route path="/loginNaver/callback" element={<LoginNaverCallback />} />
             </Routes>
         </BrowserRouter>
     );
