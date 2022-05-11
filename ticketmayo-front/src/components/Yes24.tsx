@@ -4,6 +4,20 @@ import {faStar} from '@fortawesome/free-solid-svg-icons';
 import {faStar as faStarEmpty} from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link, Outlet } from "react-router-dom";
+import PlayTab from "./PlayTab";
+
+const Container = styled.div`
+    padding: 0px 20px;
+    max-width: 485px;
+    margin: 0 auto;
+`;
+
+const Header = styled.header`
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
 
 const PlayList = styled.div`
     padding-bottom: 100px;
@@ -124,35 +138,41 @@ const playDatas = [
 function Yes24() {
     return (
         <>   
-            <Helmet>
-                <title>티켓마요-예스24 공연</title>
-            </Helmet>
-            <PlayList>
-                {playDatas.map((play) => (
-                    <Play key={play.id}>
-                        <Link to={`${play.id}/detail`}>
-                            <Img src={play.img} />
-                            <PlayText>
-                                <PlayTitle>{play.title}</PlayTitle>
-                                <ul>
-                                    <li className="open">{play.open}</li>
-                                    <li className="playLoc">{play.playLoc}</li>
-                                </ul>
-                                <div className="rating">
-                                    <FontAwesomeIcon icon={faStar} />
-                                    <FontAwesomeIcon icon={faStar} />
-                                    <FontAwesomeIcon icon={faStar} />
-                                    <FontAwesomeIcon icon={faStar} />
-                                    <FontAwesomeIcon icon={faStarEmpty} />
-                                    {/* {play.rating} */}
-                                </div>    
-                            </PlayText>
-                        </Link>
-                        <Outlet context={{}} />
-                    </Play>
-                ))}
+            <Container>
+                <Helmet>
+                    <title>티켓마요-예스24 공연</title>
+                </Helmet>
+                <Header>예스24 공연</Header>
 
-            </PlayList>  
+                <PlayTab />
+
+                <PlayList>
+                    {playDatas.map((play) => (
+                        <Play key={play.id}>
+                            <Link to={`${play.id}/detail`}>
+                                <Img src={play.img} />
+                                <PlayText>
+                                    <PlayTitle>{play.title}</PlayTitle>
+                                    <ul>
+                                        <li className="open">{play.open}</li>
+                                        <li className="playLoc">{play.playLoc}</li>
+                                    </ul>
+                                    <div className="rating">
+                                        <FontAwesomeIcon icon={faStar} />
+                                        <FontAwesomeIcon icon={faStar} />
+                                        <FontAwesomeIcon icon={faStar} />
+                                        <FontAwesomeIcon icon={faStar} />
+                                        <FontAwesomeIcon icon={faStarEmpty} />
+                                        {/* {play.rating} */}
+                                    </div>    
+                                </PlayText>
+                            </Link>
+                            <Outlet context={{}} />
+                        </Play>
+                    ))}
+
+                </PlayList>  
+            </Container>
         </>
     );
 };

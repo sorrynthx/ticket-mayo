@@ -1,11 +1,30 @@
 import { Helmet } from "react-helmet-async";
 import { Link, Outlet, useMatch } from "react-router-dom";
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
+import Image from 'react-bootstrap/Image'
+import PlayTab from "./PlayTab";
+
+const rotaionAnimation = keyframes`
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+`;
 
 const Container = styled.div`
     padding: 0px 20px;
     max-width: 485px;
     margin: 0 auto;
+    .playImg {
+        width: 100%;
+        border-radius: 1rem !important;
+        opacity: 0.9;
+    }
+    #animation1 {
+        display: inline-block;
+        animation: ${rotaionAnimation} 2s linear infinite;
+        &:hover {
+            font-size: 45px;
+        }
+    }
 `;
 
 const Header = styled.header`
@@ -43,6 +62,8 @@ function Play() {
     const interparkMatch = useMatch("/play/interpark");
     const yes24Match = useMatch("/play/yes24");
 
+    console.log(playMatch);
+
     return (
         <Container>
             <Helmet>
@@ -50,15 +71,22 @@ function Play() {
             </Helmet>
             <Header>공연</Header>
 
-            <Tabs>
-                <Tab isActive={interparkMatch !== null}>
-                    <Link to={`/play/interpark`}>인터파크</Link>
-                </Tab>
-                <Tab isActive={yes24Match !== null}>
-                    <Link to={`/play/yes24`}>예스24</Link>
-                </Tab>
-            </Tabs>            
-            <Outlet context={{}} />
+            <PlayTab />
+
+            <div className="fluid" id="introDiv">
+                <p className="mt-3 text-center">
+                    <span id="animation1">☝</span> 
+                    &nbsp;선택하세요 :D</p>
+                <Image 
+                    className="rounded playImg mt-2 mb-2"
+                    src={require('../assets/img/theater.jpg')} alt="공연장 이미지"
+                />
+                <p className="m-3 text-center">
+                    <span style={{color:'#ed1613'}}>인터파크</span>와 
+                    &nbsp;<span style={{color:'#0058aa'}}>예스24</span>의 공연정보를 제공합니다.
+                </p>
+            </div>
+
         </Container>
     );
 };
