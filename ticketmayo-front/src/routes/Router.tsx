@@ -24,10 +24,10 @@ function Router() {
             <Navigation />
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/play" element={<Play />} >
-                    <Route path="interpark" element={<Interpark />} />
-                    <Route path="yes24" element={<Yes24 />} />
-                </Route>
+                <Route path="/play" element={<Play />} />
+                <Route path="/play/interpark" element={<Interpark />} />
+                <Route path="/play/yes24" element={<Yes24 />} />
+
                 <Route path="/play/interpark/:playId/detail" element={<PlayDetail />} />
                 <Route path="/play/yes24/:playId/detail" element={<PlayDetail />} />
                 <Route path="/community" element={<Community />} />
@@ -39,7 +39,7 @@ function Router() {
                 <Route path="/myCargo/Faq" element={<MyCargoFaq />} />
                 <Route path="/myCargo/Partnership" element={<MyCargoPartnership />} />
 
-                <Route path="/login" element={<Login />} />
+                {/* <Route path="/login" element={<Login />} /> */}
                 <Route path="/loginNaver" element={<LoginNaver />} />
                 <Route path="/loginNaver/callback" element={<LoginNaverCallback />} />
             </Routes>

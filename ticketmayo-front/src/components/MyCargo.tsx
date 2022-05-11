@@ -56,17 +56,17 @@ function MyCargo() {
             <Header>
                 내 창고
             </Header>
-            <Caption>Account</Caption>
+            <Caption>계정</Caption>
             <Ul>
                 <Link to="/myCargo/My">
                     <Li>내 정보 <span><FontAwesomeIcon icon={faAngleRight} /></span></Li>
                 </Link>
-                <Link to="/login">
+                <Link to="/loginNaver">
                     <Li>로그인 / 로그아웃 <span><FontAwesomeIcon icon={faAngleRight} /></span></Li>
                 </Link>
             </Ul>
             
-            <Caption>General</Caption>
+            <Caption>일반</Caption>
             <Ul>
                 <Link to="/myCargo/Theme">
                     <Li>테마 <span><FontAwesomeIcon icon={faAngleRight} /></span></Li>
@@ -75,11 +75,11 @@ function MyCargo() {
                     <Li>공지사항 <span><FontAwesomeIcon icon={faAngleRight} /></span></Li>
                 </Link>
                 <Link to="/myCargo/Faq">
-                    <Li>문의사항 <span><FontAwesomeIcon icon={faAngleRight} /></span></Li>
+                    <Li>자주찾는질문 <span><FontAwesomeIcon icon={faAngleRight} /></span></Li>
                 </Link>
             </Ul>
 
-            <Caption>Other</Caption>
+            <Caption>기타</Caption>
             <Ul>
                 <Link to="/myCargo/Partnership">
                     <Li>제휴 <span><FontAwesomeIcon icon={faAngleRight} /></span></Li>

@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
-import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 
 const Header = styled.header`
@@ -13,7 +12,10 @@ const Header = styled.header`
 const Container = styled.div`
     padding: 0px 20px;
     max-width: 395px;
-    margin: 0 auto;
+    margin: 5vh auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     h2 {
         font-size: 1.5rem;
         margin-bottom: 5vh;
@@ -24,11 +26,6 @@ declare global {
     interface Window {
         naver: any
     }
-}
-
-interface User {
-    nickname: string;
-    email: string;
 }
 
 function LoginNaver(props: any) {
@@ -54,19 +51,15 @@ function LoginNaver(props: any) {
             <Helmet>
                 <title>로그인</title>
             </Helmet>
-            <Header>
-                로그인
-            </Header>
-
+            
             <Container>
                 <h2>소셜 로그인</h2>
-                <p>회원가입 없이 <span style={{color: '#04cf5c'}}>네이버</span> 아이디로 이용하세요 :D</p>
+                <p className="mb-2">회원가입 없이</p>
+                <p>
+                    <span style={{color: '#04cf5c'}}>네이버</span> 아이디로 이용하세요 :D
+                </p>
 
-                 
-                <div id='naverIdLogin'></div>
-
-                
-
+                <div className="mt-3" id='naverIdLogin'></div>
             </Container>
         </>
     );

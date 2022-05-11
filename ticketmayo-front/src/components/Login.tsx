@@ -47,9 +47,6 @@ function Login() {
             <Helmet>
                 <title>로그인</title>
             </Helmet>
-            <Header>
-                로그인
-            </Header>
 
             <Container>
                 <h2>이메일로 로그인</h2>
