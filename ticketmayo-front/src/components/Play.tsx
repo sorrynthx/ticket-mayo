@@ -1,5 +1,4 @@
 import { Helmet } from "react-helmet-async";
-import { Link, Outlet, useMatch } from "react-router-dom";
 import styled, {keyframes} from "styled-components";
 import Image from 'react-bootstrap/Image'
 import PlayTab from "./PlayTab";
@@ -34,36 +33,8 @@ const Header = styled.header`
     align-items: center;
 `;
 
-const Tabs = styled.div`
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    margin: 25px 0px;
-    gap: 10px;
-`;
-
-const Tab = styled.span<{isActive: boolean}>`
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 12px;
-    font-weight: 400;
-    background-color: rgb(255, 143, 171, 0.5);
-    padding: 7px 0px;
-    border-radius: 10px;
-    a {
-        display: block;
-        &:hover {color: #fff};
-    }
-    color: ${(props) => props.isActive ? '#fff' : '#000000 !important'};
-`;
-
 function Play() {
     
-    const playMatch = useMatch("/play");
-    const interparkMatch = useMatch("/play/interpark");
-    const yes24Match = useMatch("/play/yes24");
-
-    console.log(playMatch);
-
     return (
         <Container>
             <Helmet>
@@ -83,7 +54,8 @@ function Play() {
                 />
                 <p className="m-3 text-center">
                     <span style={{color:'#ed1613'}}>인터파크</span>와 
-                    &nbsp;<span style={{color:'#0058aa'}}>예스24</span>의 공연정보를 제공합니다.
+                    &nbsp;<span style={{color:'#0058aa'}}>예스24</span>의 공연정보를 제공합니다.<br/><br/>
+                    간편하게 확인하세요 :)
                 </p>
             </div>
 

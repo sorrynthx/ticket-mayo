@@ -3,7 +3,7 @@ import styled from "styled-components";
 import {faStar} from '@fortawesome/free-solid-svg-icons';
 import {faStar as faStarEmpty} from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link, Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
 import PlayTab from "./PlayTab";
 
 const Container = styled.div`
@@ -144,12 +144,20 @@ function Interpark() {
                 </Helmet>    
                 <Header>인터파크 공연</Header>
 
+                {/* Play Tab */}
                 <PlayTab />
 
                 <PlayList>
                     {playDatas.map((play) => (
                         <Play key={play.id}>
-                            <Link to={`${play.id}/detail`}>
+                            <Link 
+                                to={`${play.id}/detail`} 
+                                state={{
+                                    title:play.title, 
+                                    img: play.img,
+                                }}
+                            >
+
                                 <Img src={play.img} />
                                 <PlayText>
                                     <PlayTitle>{play.title}</PlayTitle>
@@ -167,7 +175,6 @@ function Interpark() {
                                     </div>    
                                 </PlayText>
                             </Link>
-                            <Outlet context={{}} />
                         </Play>
                     ))}
                 </PlayList> 
