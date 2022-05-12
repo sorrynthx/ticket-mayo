@@ -1,21 +1,21 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Community from '../components/Community';
+import Community from '../components/Community/Community';
 
-import Home from '../components/Home';
-import Interpark from '../components/Interpark';
-import Login from '../components/Login';
-import LoginNaver from '../components/LoginNaver';
-import LoginNaverCallback from '../components/LoginNaverCallback';
-import MyCargo from '../components/MyCargo';
-import MyCargoFaq from '../components/MyCargoFaq';
-import MyCargoMy from '../components/MyCargoMy';
-import MyCargoNotice from '../components/MyCargoNotice';
-import MyCargoPartnership from '../components/MyCargoPartnership';
-import MyCargoTheme from '../components/MyCargoTheme';
+import Home from '../components/Home/Home';
+import Interpark from '../components/Play/Interpark';
+import Login from '../components/Login/Login';
+import LoginNaver from '../components/Login/LoginNaver';
+import LoginNaverCallback from '../components/Login/LoginNaverCallback';
+import MyCargo from '../components/MyCargo/MyCargo';
+import MyCargoFaq from '../components/MyCargo/MyCargoFaq';
+import MyCargoMy from '../components/MyCargo/MyCargoMy';
+import MyCargoNotice from '../components/MyCargo/MyCargoNotice';
+import MyCargoPartnership from '../components/MyCargo/MyCargoPartnership';
+import MyCargoTheme from '../components/MyCargo/MyCargoTheme';
 import Navigation from '../components/Nav/Navigation';
-import Play from '../components/Play';
-import PlayDetail from '../components/PlayDetail';
-import Yes24 from '../components/Yes24';
+import Play from '../components/Play/Play';
+import PlayDetail from '../components/Play/PlayDetail';
+import Yes24 from '../components/Play/Yes24';
 
 function Router() {
     return (       
