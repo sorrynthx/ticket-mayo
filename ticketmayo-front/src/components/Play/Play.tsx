@@ -50,7 +50,7 @@ function Play() {
                     &nbsp;선택하세요 :D</p>
                 <Image 
                     className="rounded playImg mt-2 mb-2"
-                    src={require('../assets/img/theater.jpg')} alt="공연장 이미지"
+                    src={require('../../assets/img/theater.jpg')} alt="공연장 이미지"
                 />
                 <p className="m-3 text-center">
                     <span style={{color:'#ed1613'}}>인터파크</span>와 
