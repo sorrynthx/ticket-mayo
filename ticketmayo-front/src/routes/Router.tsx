@@ -16,6 +16,11 @@ import Navigation from '../components/Nav/Navigation';
 import Play from '../components/Play/Play';
 import PlayDetail from '../components/Play/PlayDetail';
 import Yes24 from '../components/Play/Yes24';
+import Info from '../components/Play/PlayDetailTab/Info';
+import Price from '../components/Play/PlayDetailTab/Price';
+import Actors from '../components/Play/PlayDetailTab/Actors';
+import Ticket from '../components/Play/PlayDetailTab/Ticket';
+import Restaurants from '../components/Play/PlayDetailTab/Restaurants';
 
 function Router() {
     return (       
@@ -28,8 +33,17 @@ function Router() {
                 <Route path="/play/interpark" element={<Interpark />} />
                 <Route path="/play/yes24" element={<Yes24 />} />
 
-                <Route path="/play/interpark/:playId/detail" element={<PlayDetail />} />
                 <Route path="/play/yes24/:playId/detail" element={<PlayDetail />} />
+                
+                <Route path="/play/interpark/:playId/detail" element={<PlayDetail />} >
+                    <Route path="info" element={<Info />} />   
+                    <Route path="price" element={<Price />} />   
+                </Route>
+                
+                
+                
+
+
                 <Route path="/community" element={<Community />} />
                 
                 <Route path="/myCargo" element={<MyCargo />} />

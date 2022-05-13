@@ -42,6 +42,7 @@ function Play() {
             </Helmet>
             <Header>공연</Header>
 
+            {/* Tab */}
             <PlayTab />
 
             <div className="fluid" id="introDiv">
