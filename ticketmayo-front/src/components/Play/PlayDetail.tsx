@@ -5,8 +5,9 @@ import {faStar as faStarEmpty} from '@fortawesome/free-regular-svg-icons';
 import { Badge } from "react-bootstrap";
 import Image from 'react-bootstrap/Image'
 import { Helmet } from "react-helmet-async";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { Outlet, useLocation, useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
     padding: 0px 20px;
@@ -39,14 +40,42 @@ const Header = styled.header`
     }
 `;
 
+const Tabs = styled.div`
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 25px 0px;
+    gap: 10px;
+`;
+
+const Tab = styled.span`
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 400;
+    background-color: rgb(255, 143, 171, 0.5);
+    padding: 7px 0px;
+    border-radius: 10px;
+    a {
+        display: block;
+        &:hover {color: #fff};
+    }
+`;
+
+
 interface RouteParam {
     playId: number;
 }
 
 interface RouteState {
     state: {
+        id: number,
         title: string,
+        open: string,
+        playLoc: string,
+        grade: string,
+        playTime: string,
         img: string,
+        rating: number
     }
 }
 
@@ -55,15 +84,16 @@ function PlayDetail() {
     let navigate = useNavigate();
 
     const {playId} = useParams() as unknown as RouteParam;   console.log(playId); 
-    const {state} = useLocation() as RouteState;
+    const {state} = useLocation() as RouteState;            console.log(state);
     
     return (
-        <>
+        
             <Container>
+                <>
                 <Helmet>
                     <title>티켓마요 공연 정보</title>
                 </Helmet>
-                <Header>
+                {/* <Header>
                     <span onClick={() => navigate(-1)}>
                         <FontAwesomeIcon icon={faAngleLeft} />
                     </span>
@@ -87,17 +117,25 @@ function PlayDetail() {
                         <FontAwesomeIcon icon={faStar} />
                         <FontAwesomeIcon icon={faStar} />
                         <FontAwesomeIcon icon={faStarEmpty} />
-                        {/* {play.rating} */}
                     </div> 
 
-                </div>
+                </div> */}
 
                 <div className="fluid" id="infoDiv">
 
+                    {/* Tab */}
+                    <Tabs>
+                        <Tab>
+                            <Link to={`/play/interpark/${playId}/detail/info`}>정보</Link>
+                        </Tab>
+                        <Tab>
+                            <Link to={`/play/interpark/${playId}/detail/price`}>가격</Link>
+                        </Tab>
+                    </Tabs>                    
+                    <Outlet context={{playId}} />
                 </div>
-
-            </Container>
-        </>
+                </>
+        </Container>
     );
 };
 

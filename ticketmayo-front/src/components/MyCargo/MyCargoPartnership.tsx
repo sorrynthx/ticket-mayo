@@ -65,7 +65,8 @@ function MyCargoPartnership() {
                         src={require('../../assets/img/partnership.jpg')} alt="제휴 이미지"
                     />
                     <p className="m-3 text-center">
-                        <a onClick={() => window.open('https://open.kakao.com/o/sJDJ2Fbe', '_blank')} style={{color:'#fecd00', cursor: "pointer"}}>카카오 채팅</a> 으로 문의해주세요.
+                        <a onClick={() => window.open('https://open.kakao.com/o/sJDJ2Fbe', '_blank')} style={{color:'#fecd00', cursor: "pointer"}}>
+                           👉👉👉 카카오 채팅</a> 으로 문의해주세요.
                     </p>
                 </div>
                 

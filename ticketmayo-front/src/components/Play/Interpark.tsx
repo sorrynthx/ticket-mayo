@@ -5,6 +5,7 @@ import {faStar as faStarEmpty} from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import PlayTab from "./PlayTab";
+import { idText } from "typescript";
 
 const Container = styled.div`
     padding: 0px 20px;
@@ -153,8 +154,14 @@ function Interpark() {
                             <Link 
                                 to={`${play.id}/detail`} 
                                 state={{
+                                    id: play.id,
                                     title:play.title, 
+                                    open: play.open,
+                                    playLoc: play.playLoc,
+                                    grade: play.grade,
+                                    playTime: play.playTime,
                                     img: play.img,
+                                    rating: play.rating
                                 }}
                             >
 
