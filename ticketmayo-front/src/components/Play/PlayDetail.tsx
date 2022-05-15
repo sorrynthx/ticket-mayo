@@ -5,7 +5,7 @@ import {faStar as faStarEmpty} from '@fortawesome/free-regular-svg-icons';
 import { Badge } from "react-bootstrap";
 import Image from 'react-bootstrap/Image'
 import { Helmet } from "react-helmet-async";
-import { Outlet, useLocation, useNavigate, useParams } from "react-router-dom";
+import { Outlet, useLocation, useMatch, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
@@ -42,12 +42,12 @@ const Header = styled.header`
 
 const Tabs = styled.div`
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     margin: 25px 0px;
     gap: 10px;
 `;
 
-const Tab = styled.span`
+const Tab = styled.span<{isActive: boolean}>`
     text-align: center;
     text-transform: uppercase;
     font-size: 12px;
@@ -59,6 +59,7 @@ const Tab = styled.span`
         display: block;
         &:hover {color: #fff};
     }
+    color: ${(props) => props.isActive ? '#fff' : '#000000 !important'};
 `;
 
 
@@ -75,17 +76,22 @@ interface RouteState {
         grade: string,
         playTime: string,
         img: string,
-        rating: number
+        rating: number,
+        shop: string,
     }
 }
 
 function PlayDetail() {
     
-    let navigate = useNavigate();
-
-    const {playId} = useParams() as unknown as RouteParam;   console.log(playId); 
+    const {playId} = useParams() as unknown as RouteParam;
     const {state} = useLocation() as RouteState;            console.log(state);
     
+    const infoMatch = useMatch(`/play/${state.shop}/${playId}/detail/info`);
+    const priceMatch = useMatch(`/play/${state.shop}/${playId}/detail/price`);
+    const actorsMatch = useMatch(`/play/${state.shop}/${playId}/detail/actors`);
+    const ticketMatch = useMatch(`/play/${state.shop}/${playId}/detail/ticket`);
+    const restaurantsMatch = useMatch(`/play/${state.shop}/${playId}/detail/restaurants`);
+
     return (
         
             <Container>
@@ -93,19 +99,24 @@ function PlayDetail() {
                 <Helmet>
                     <title>티켓마요 공연 정보</title>
                 </Helmet>
-                {/* <Header>
-                    <span onClick={() => navigate(-1)}>
-                        <FontAwesomeIcon icon={faAngleLeft} />
+                <Header>
+                    <span>
+                        <Link 
+                            to={`/play/${state.shop}`} state={{shop:`${state.shop}`}}
+                        >
+                            <FontAwesomeIcon icon={faAngleLeft} />
+                        </Link>
                     </span>
-                    {state?.title ? state.title : 'loading...'}
+                    {state?.title ? state?.title : 'loading...'}
                 </Header>
                 
-                <div className="fluid text-center" id="imgDiv">
-                    <Image 
-                        className="rounded playImg mt-2 mb-2 thumbnail"
-                        src={state.img} alt={state.title}
-                    />
-                </div>
+                
+                    <div className="fluid text-center" id="imgDiv">
+                        <Image 
+                            className="rounded playImg mt-2 mb-2 thumbnail"
+                            src={`${state.img}`} alt={state.title}
+                        />
+                    </div>
 
                 <div className="fluid text-center" id="titleDiv">
                     <Badge bg="danger">인터파크</Badge>
@@ -119,17 +130,51 @@ function PlayDetail() {
                         <FontAwesomeIcon icon={faStarEmpty} />
                     </div> 
 
-                </div> */}
+                </div>
 
                 <div className="fluid" id="infoDiv">
 
                     {/* Tab */}
                     <Tabs>
-                        <Tab>
-                            <Link to={`/play/interpark/${playId}/detail/info`}>정보</Link>
+                        <Tab isActive={infoMatch !== null }>
+                            <Link 
+                                to={`/play/${state.shop}/${playId}/detail/info`}
+                                state={state}
+                            >
+                                정보
+                            </Link>
                         </Tab>
-                        <Tab>
-                            <Link to={`/play/interpark/${playId}/detail/price`}>가격</Link>
+                        <Tab isActive={priceMatch !== null }>
+                            <Link 
+                                to={`/play/${state.shop}/${playId}/detail/price`}
+                                state={state}
+                            >
+                                가격
+                            </Link>
+                        </Tab>
+                        <Tab isActive={actorsMatch !== null }>
+                            <Link 
+                                to={`/play/${state.shop}/${playId}/detail/actors`}
+                                state={state}
+                            >
+                                출연
+                            </Link>
+                        </Tab>
+                        <Tab isActive={ticketMatch !== null }>
+                            <Link 
+                                to={`/play/${state.shop}/${playId}/detail/ticket`}
+                                state={state}
+                            >
+                                티켓
+                            </Link>
+                        </Tab>
+                        <Tab isActive={restaurantsMatch !== null }>
+                            <Link 
+                                to={`/play/${state.shop}/${playId}/detail/restaurants`}
+                                state={state}
+                            >
+                                맛집
+                            </Link>
                         </Tab>
                     </Tabs>                    
                     <Outlet context={{playId}} />

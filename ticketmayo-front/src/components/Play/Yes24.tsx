@@ -3,7 +3,7 @@ import styled from "styled-components";
 import {faStar} from '@fortawesome/free-solid-svg-icons';
 import {faStar as faStarEmpty} from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link, Outlet } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import PlayTab from "./PlayTab";
 
 const Container = styled.div`
@@ -135,21 +135,46 @@ const playDatas = [
     }
 ];
 
+
+interface RouteState {
+    state: {
+        shop: string,
+    }
+}
+
 function Yes24() {
+    
+    const {state} = useLocation() as RouteState; 
+    
     return (
         <>   
             <Container>
                 <Helmet>
                     <title>티켓마요-예스24 공연</title>
-                </Helmet>
+                </Helmet>    
                 <Header>예스24 공연</Header>
 
+                {/* Play Tab */}
                 <PlayTab />
 
                 <PlayList>
                     {playDatas.map((play) => (
                         <Play key={play.id}>
-                            <Link to={`${play.id}/detail`}>
+                            <Link 
+                                to={`${play.id}/detail`} 
+                                state={{
+                                    id: play.id,
+                                    title:play.title, 
+                                    open: play.open,
+                                    playLoc: play.playLoc,
+                                    grade: play.grade,
+                                    playTime: play.playTime,
+                                    img: play.img,
+                                    rating: play.rating,
+                                    shop: state.shop,
+                                }}
+                            >
+
                                 <Img src={play.img} />
                                 <PlayText>
                                     <PlayTitle>{play.title}</PlayTitle>
@@ -164,15 +189,13 @@ function Yes24() {
                                         <FontAwesomeIcon icon={faStar} />
                                         <FontAwesomeIcon icon={faStarEmpty} />
                                         {/* {play.rating} */}
-                                    </div>    
+                                    </div>     
                                 </PlayText>
                             </Link>
-                            <Outlet context={{}} />
                         </Play>
                     ))}
-
-                </PlayList>  
-            </Container>
+                </PlayList> 
+            </Container> 
         </>
     );
 };
