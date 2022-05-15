@@ -33,10 +33,10 @@ function PlayTab() {
         <>
             <Tabs>
                 <Tab isActive={interparkMatch !== null}>
-                    <Link to={`/play/interpark`}>인터파크</Link>
+                    <Link to={`/play/interpark`} state={{shop:'interpark'}}>인터파크</Link>
                 </Tab>
                 <Tab isActive={yes24Match !== null}>
-                    <Link to={`/play/yes24`}>예스24</Link>
+                    <Link to={`/play/yes24`} state={{shop:'yes24'}}>예스24</Link>
                 </Tab>
             </Tabs>
             <Outlet context={{}} />         

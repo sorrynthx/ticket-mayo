@@ -3,9 +3,8 @@ import styled from "styled-components";
 import {faStar} from '@fortawesome/free-solid-svg-icons';
 import {faStar as faStarEmpty} from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import PlayTab from "./PlayTab";
-import { idText } from "typescript";
 
 const Container = styled.div`
     padding: 0px 20px;
@@ -136,7 +135,17 @@ const playDatas = [
     }
 ];
 
+
+interface RouteState {
+    state: {
+        shop: string,
+    }
+}
+
 function Interpark() {
+    
+    const {state} = useLocation() as RouteState; 
+    
     return (
         <>   
             <Container>
@@ -161,7 +170,8 @@ function Interpark() {
                                     grade: play.grade,
                                     playTime: play.playTime,
                                     img: play.img,
-                                    rating: play.rating
+                                    rating: play.rating,
+                                    shop: state.shop,
                                 }}
                             >
 

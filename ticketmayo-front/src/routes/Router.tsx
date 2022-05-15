@@ -3,7 +3,6 @@ import Community from '../components/Community/Community';
 
 import Home from '../components/Home/Home';
 import Interpark from '../components/Play/Interpark';
-import Login from '../components/Login/Login';
 import LoginNaver from '../components/Login/LoginNaver';
 import LoginNaverCallback from '../components/Login/LoginNaverCallback';
 import MyCargo from '../components/MyCargo/MyCargo';
@@ -33,11 +32,20 @@ function Router() {
                 <Route path="/play/interpark" element={<Interpark />} />
                 <Route path="/play/yes24" element={<Yes24 />} />
 
-                <Route path="/play/yes24/:playId/detail" element={<PlayDetail />} />
+                <Route path="/play/yes24/:playId/detail" element={<PlayDetail />} >
+                    <Route path="info" element={<Info />} />   
+                    <Route path="price" element={<Price />} />   
+                    <Route path="actors" element={<Actors />} />   
+                    <Route path="ticket" element={<Ticket />} />   
+                    <Route path="restaurants" element={<Restaurants />} />   
+                </Route>
                 
                 <Route path="/play/interpark/:playId/detail" element={<PlayDetail />} >
                     <Route path="info" element={<Info />} />   
                     <Route path="price" element={<Price />} />   
+                    <Route path="actors" element={<Actors />} />   
+                    <Route path="ticket" element={<Ticket />} />   
+                    <Route path="restaurants" element={<Restaurants />} />   
                 </Route>
                 
                 
