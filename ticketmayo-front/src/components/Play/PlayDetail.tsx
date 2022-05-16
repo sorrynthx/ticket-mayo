@@ -77,14 +77,24 @@ interface RouteState {
         playTime: string,
         img: string,
         rating: number,
+        price: string[],
+        discount: string,
         shop: string,
     }
+}
+
+const InterparkTag = () => {
+    return <Badge bg="danger" className="mt-2 mb-2">인터파크</Badge>;
+}
+
+const Yes24Tag = () => {
+    return <Badge bg="primary" className="mt-2 mb-2">예스24</Badge>;
 }
 
 function PlayDetail() {
     
     const {playId} = useParams() as unknown as RouteParam;
-    const {state} = useLocation() as RouteState;            console.log(state);
+    const {state} = useLocation() as RouteState;
     
     const infoMatch = useMatch(`/play/${state.shop}/${playId}/detail/info`);
     const priceMatch = useMatch(`/play/${state.shop}/${playId}/detail/price`);
@@ -110,7 +120,7 @@ function PlayDetail() {
                     {state?.title ? state?.title : 'loading...'}
                 </Header>
                 
-                
+                    {/* 이미지 */}
                     <div className="fluid text-center" id="imgDiv">
                         <Image 
                             className="rounded playImg mt-2 mb-2 thumbnail"
@@ -119,9 +129,13 @@ function PlayDetail() {
                     </div>
 
                 <div className="fluid text-center" id="titleDiv">
-                    <Badge bg="danger">인터파크</Badge>
+                    {/* 공연 티켓처 태그 */}
+                    {state?.shop == 'interpark' ? <InterparkTag /> : <Yes24Tag />}
+
+                    {/* 제목 */}
                     <h2 className="mt-2 mb-2">{state.title}</h2>
 
+                    {/* 별점 */}
                     <div className="rating">
                         <FontAwesomeIcon icon={faStar} />
                         <FontAwesomeIcon icon={faStar} />
@@ -132,6 +146,7 @@ function PlayDetail() {
 
                 </div>
 
+                {/* 자세한 정보->탭 */}
                 <div className="fluid" id="infoDiv">
 
                     {/* Tab */}

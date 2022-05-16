@@ -91,7 +91,18 @@ const playDatas = [
         grade: " 14세 이상 관람가 (미취학 아동, 초등학생 관람불가)",
         playTime: "160분 (인터미션 20분 포함)",
         img: "https://ticketimage.interpark.com/Play/image/large/22/22000970_p.gif",
-        rating: "9.6"
+        rating: "9.6",
+        price: [
+            "VIP석 150,000원",
+            "VIP석(가변석) 150,000원",
+            "R석 130,000원",
+            "R석(가변석) 130,000원",
+            "S석 100,000원",
+            "S석(가변석) 100,000원",
+            "A석 70,000원",
+            "A석(가변석) 70,000원",
+        ],
+        discount: "http://m.ticket.yes24.com/Perf/Detail/PerfPromotion.aspx?IdPerf=41357"
     },
     {
         id: 1,
@@ -101,7 +112,18 @@ const playDatas = [
         grade: " 14세 이상 관람가 (미취학 아동, 초등학생 관람불가)",
         playTime: "160분 (인터미션 20분 포함)",
         img: "https://ticketimage.interpark.com/Play/image/large/22/22000970_p.gif",
-        rating: "9.6"
+        rating: "9.6",
+        price: [
+            "VIP석 150,000원",
+            "VIP석(가변석) 150,000원",
+            "R석 130,000원",
+            "R석(가변석) 130,000원",
+            "S석 100,000원",
+            "S석(가변석) 100,000원",
+            "A석 70,000원",
+            "A석(가변석) 70,000원",
+        ],
+        discount: "http://m.ticket.yes24.com/Perf/Detail/PerfPromotion.aspx?IdPerf=41357"
     },
     {
         id: 2,
@@ -111,7 +133,18 @@ const playDatas = [
         grade: " 14세 이상 관람가 (미취학 아동, 초등학생 관람불가)",
         playTime: "160분 (인터미션 20분 포함)",
         img: "https://ticketimage.interpark.com/Play/image/large/22/22000970_p.gif",
-        rating: "9.6"
+        rating: "9.6",
+        price: [
+            "VIP석 150,000원",
+            "VIP석(가변석) 150,000원",
+            "R석 130,000원",
+            "R석(가변석) 130,000원",
+            "S석 100,000원",
+            "S석(가변석) 100,000원",
+            "A석 70,000원",
+            "A석(가변석) 70,000원",
+        ],
+        discount: "http://m.ticket.yes24.com/Perf/Detail/PerfPromotion.aspx?IdPerf=41357"
     },
     {
         id: 3,
@@ -121,7 +154,18 @@ const playDatas = [
         grade: " 14세 이상 관람가 (미취학 아동, 초등학생 관람불가)",
         playTime: "160분 (인터미션 20분 포함)",
         img: "https://ticketimage.interpark.com/Play/image/large/22/22000970_p.gif",
-        rating: "9.6"
+        rating: "9.6",
+        price: [
+            "VIP석 150,000원",
+            "VIP석(가변석) 150,000원",
+            "R석 130,000원",
+            "R석(가변석) 130,000원",
+            "S석 100,000원",
+            "S석(가변석) 100,000원",
+            "A석 70,000원",
+            "A석(가변석) 70,000원",
+        ],
+        discount: "http://m.ticket.yes24.com/Perf/Detail/PerfPromotion.aspx?IdPerf=41357"
     },
     {
         id: 4,
@@ -131,7 +175,18 @@ const playDatas = [
         grade: " 14세 이상 관람가 (미취학 아동, 초등학생 관람불가)",
         playTime: "160분 (인터미션 20분 포함)",
         img: "https://ticketimage.interpark.com/Play/image/large/22/22000970_p.gif",
-        rating: "9.6"
+        rating: "9.6",
+        price: [
+            "VIP석 150,000원",
+            "VIP석(가변석) 150,000원",
+            "R석 130,000원",
+            "R석(가변석) 130,000원",
+            "S석 100,000원",
+            "S석(가변석) 100,000원",
+            "A석 70,000원",
+            "A석(가변석) 70,000원",
+        ],
+        discount: "http://m.ticket.yes24.com/Perf/Detail/PerfPromotion.aspx?IdPerf=41357"
     }
 ];
 
@@ -171,6 +226,8 @@ function Yes24() {
                                     playTime: play.playTime,
                                     img: play.img,
                                     rating: play.rating,
+                                    price: play.price,
+                                    discount: play.discount,
                                     shop: state.shop,
                                 }}
                             >
