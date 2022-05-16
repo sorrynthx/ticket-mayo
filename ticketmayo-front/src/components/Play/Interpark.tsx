@@ -5,6 +5,7 @@ import {faStar as faStarEmpty} from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link, useLocation } from "react-router-dom";
 import PlayTab from "./PlayTab";
+import Price from "./PlayDetailTab/Price";
 
 const Container = styled.div`
     padding: 0px 20px;
@@ -91,7 +92,18 @@ const playDatas = [
         grade: " 14세 이상 관람가 (미취학 아동, 초등학생 관람불가)",
         playTime: "160분 (인터미션 20분 포함)",
         img: "https://ticketimage.interpark.com/Play/image/large/22/22000970_p.gif",
-        rating: "9.6"
+        rating: "9.6",
+        price: [
+            "VIP석 150,000원",
+            "R석 130,000원",
+            "S석 100,000원",
+            "A석 70,000원",
+            "VIP석(가변석) 150,000원",
+            "R석(가변석) 130,000원",
+            "S석(가변석) 100,000원",
+            "A석(가변석) 70,000원",
+        ],
+        discount: "http://mticket.interpark.com/Goods/GoodsInfo/GoodsExpandPopup?GoodsCode=22000970&ViewMode=discount"
     },
     {
         id: 1,
@@ -101,7 +113,18 @@ const playDatas = [
         grade: " 14세 이상 관람가 (미취학 아동, 초등학생 관람불가)",
         playTime: "160분 (인터미션 20분 포함)",
         img: "https://ticketimage.interpark.com/Play/image/large/22/22000970_p.gif",
-        rating: "9.6"
+        rating: "9.6",
+        price: [
+            "VIP석 150,000원",
+            "R석 130,000원",
+            "S석 100,000원",
+            "A석 70,000원",
+            "VIP석(가변석) 150,000원",
+            "R석(가변석) 130,000원",
+            "S석(가변석) 100,000원",
+            "A석(가변석) 70,000원",
+        ],
+        discount: "http://mticket.interpark.com/Goods/GoodsInfo/GoodsExpandPopup?GoodsCode=22000970&ViewMode=discount"
     },
     {
         id: 2,
@@ -111,7 +134,18 @@ const playDatas = [
         grade: " 14세 이상 관람가 (미취학 아동, 초등학생 관람불가)",
         playTime: "160분 (인터미션 20분 포함)",
         img: "https://ticketimage.interpark.com/Play/image/large/22/22000970_p.gif",
-        rating: "9.6"
+        rating: "9.6",
+        price: [
+            "VIP석 150,000원",
+            "R석 130,000원",
+            "S석 100,000원",
+            "A석 70,000원",
+            "VIP석(가변석) 150,000원",
+            "R석(가변석) 130,000원",
+            "S석(가변석) 100,000원",
+            "A석(가변석) 70,000원",
+        ],
+        discount: "http://mticket.interpark.com/Goods/GoodsInfo/GoodsExpandPopup?GoodsCode=22000970&ViewMode=discount"
     },
     {
         id: 3,
@@ -121,7 +155,18 @@ const playDatas = [
         grade: " 14세 이상 관람가 (미취학 아동, 초등학생 관람불가)",
         playTime: "160분 (인터미션 20분 포함)",
         img: "https://ticketimage.interpark.com/Play/image/large/22/22000970_p.gif",
-        rating: "9.6"
+        rating: "9.6",
+        price: [
+            "VIP석 150,000원",
+            "R석 130,000원",
+            "S석 100,000원",
+            "A석 70,000원",
+            "VIP석(가변석) 150,000원",
+            "R석(가변석) 130,000원",
+            "S석(가변석) 100,000원",
+            "A석(가변석) 70,000원",
+        ],
+        discount: "http://mticket.interpark.com/Goods/GoodsInfo/GoodsExpandPopup?GoodsCode=22000970&ViewMode=discount"
     },
     {
         id: 4,
@@ -131,7 +176,18 @@ const playDatas = [
         grade: " 14세 이상 관람가 (미취학 아동, 초등학생 관람불가)",
         playTime: "160분 (인터미션 20분 포함)",
         img: "https://ticketimage.interpark.com/Play/image/large/22/22000970_p.gif",
-        rating: "9.6"
+        rating: "9.6",
+        price: [
+            "VIP석 150,000원",
+            "R석 130,000원",
+            "S석 100,000원",
+            "A석 70,000원",
+            "VIP석(가변석) 150,000원",
+            "R석(가변석) 130,000원",
+            "S석(가변석) 100,000원",
+            "A석(가변석) 70,000원",
+        ],
+        discount: "http://mticket.interpark.com/Goods/GoodsInfo/GoodsExpandPopup?GoodsCode=22000970&ViewMode=discount"
     }
 ];
 
@@ -171,6 +227,8 @@ function Interpark() {
                                     playTime: play.playTime,
                                     img: play.img,
                                     rating: play.rating,
+                                    price: play.price,
+                                    discount: play.discount,
                                     shop: state.shop,
                                 }}
                             >
