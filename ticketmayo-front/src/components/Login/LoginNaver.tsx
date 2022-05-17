@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Image } from "react-bootstrap";
 import { Helmet } from "react-helmet-async";
 import styled from "styled-components";
 
@@ -20,6 +21,7 @@ const Container = styled.div`
         font-size: 1.5rem;
         margin-bottom: 5vh;
     }
+   
 `;
 
 declare global {
@@ -58,6 +60,11 @@ function LoginNaver(props: any) {
                 <p>
                     <span style={{color: '#04cf5c'}}>네이버</span> 아이디로 이용하세요 :D
                 </p>
+
+                <Image 
+                    className="rounded loginImg mt-2 mb-2" style={{maxWidth: '200px'}}
+                    src={require('../../assets/img/login.png')} alt="로그인 이미지"
+                />
 
                 <div className="mt-3" id='naverIdLogin'></div>
             </Container>
