@@ -79,6 +79,7 @@ interface RouteState {
         rating: number,
         price: string[],
         discount: string,
+        info: string,
         shop: string,
     }
 }

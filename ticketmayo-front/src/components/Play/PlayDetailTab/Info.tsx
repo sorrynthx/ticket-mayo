@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -14,8 +15,32 @@ const Header = styled.header`
     align-items: center;
 `;
 
+const InfoImage = styled.img`
+    max-width: 100%;
+    margin-bottom: 7rem;
+`;
+
+interface RouteState {
+    state: {
+        id: number,
+        title: string,
+        open: string,
+        playLoc: string,
+        grade: string,
+        playTime: string,
+        img: string,
+        rating: number,
+        price: string[],
+        discount: string,
+        info: string,
+        shop: string,
+    }
+}  
 
 function Info() {
+    
+    const {state} = useLocation() as RouteState;
+    
     return (
         <>   
             <Container>
@@ -24,8 +49,8 @@ function Info() {
                 </Helmet>    
                 <Header>Info</Header>
 
-                Info
-
+                
+                <InfoImage className="fluid" src={state.info} alt={state.title + " 이미지"} />
                 
             </Container> 
         </>
