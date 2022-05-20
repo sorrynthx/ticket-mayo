@@ -103,7 +103,8 @@ const playDatas = [
             "S석(가변석) 100,000원",
             "A석(가변석) 70,000원",
         ],
-        discount: "http://mticket.interpark.com/Goods/GoodsInfo/GoodsExpandPopup?GoodsCode=22000970&ViewMode=discount"
+        discount: "http://mticket.interpark.com/Goods/GoodsInfo/GoodsExpandPopup?GoodsCode=22000970&ViewMode=discount",
+        info: "https://ticketimage.interpark.com/Play/image/etc/22/22000970-12.jpg",
     },
     {
         id: 1,
@@ -124,7 +125,8 @@ const playDatas = [
             "S석(가변석) 100,000원",
             "A석(가변석) 70,000원",
         ],
-        discount: "http://mticket.interpark.com/Goods/GoodsInfo/GoodsExpandPopup?GoodsCode=22000970&ViewMode=discount"
+        discount: "http://mticket.interpark.com/Goods/GoodsInfo/GoodsExpandPopup?GoodsCode=22000970&ViewMode=discount",
+        info: "https://ticketimage.interpark.com/Play/image/etc/22/22000970-12.jpg",
     },
     {
         id: 2,
@@ -145,7 +147,8 @@ const playDatas = [
             "S석(가변석) 100,000원",
             "A석(가변석) 70,000원",
         ],
-        discount: "http://mticket.interpark.com/Goods/GoodsInfo/GoodsExpandPopup?GoodsCode=22000970&ViewMode=discount"
+        discount: "http://mticket.interpark.com/Goods/GoodsInfo/GoodsExpandPopup?GoodsCode=22000970&ViewMode=discount",
+        info: "https://ticketimage.interpark.com/Play/image/etc/22/22000970-12.jpg",
     },
     {
         id: 3,
@@ -166,7 +169,8 @@ const playDatas = [
             "S석(가변석) 100,000원",
             "A석(가변석) 70,000원",
         ],
-        discount: "http://mticket.interpark.com/Goods/GoodsInfo/GoodsExpandPopup?GoodsCode=22000970&ViewMode=discount"
+        discount: "http://mticket.interpark.com/Goods/GoodsInfo/GoodsExpandPopup?GoodsCode=22000970&ViewMode=discount",
+        info: "https://ticketimage.interpark.com/Play/image/etc/22/22000970-12.jpg",
     },
     {
         id: 4,
@@ -187,7 +191,8 @@ const playDatas = [
             "S석(가변석) 100,000원",
             "A석(가변석) 70,000원",
         ],
-        discount: "http://mticket.interpark.com/Goods/GoodsInfo/GoodsExpandPopup?GoodsCode=22000970&ViewMode=discount"
+        discount: "http://mticket.interpark.com/Goods/GoodsInfo/GoodsExpandPopup?GoodsCode=22000970&ViewMode=discount",
+        info: "https://ticketimage.interpark.com/Play/image/etc/22/22000970-12.jpg",
     }
 ];
 
@@ -229,6 +234,7 @@ function Interpark() {
                                     rating: play.rating,
                                     price: play.price,
                                     discount: play.discount,
+                                    info: play.info,
                                     shop: state.shop,
                                 }}
                             >
