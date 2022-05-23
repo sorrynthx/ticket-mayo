@@ -20,6 +20,7 @@ import Price from '../components/Play/PlayDetailTab/Price';
 import Actors from '../components/Play/PlayDetailTab/Actors';
 import Ticket from '../components/Play/PlayDetailTab/Ticket';
 import Restaurants from '../components/Play/PlayDetailTab/Restaurants';
+import Tickets from '../components/Tickets/Tickets';
 
 function Router() {
     return (       
@@ -50,6 +51,14 @@ function Router() {
                 
                 
                 
+
+
+
+
+
+
+                <Route path="/tickets" element={<Tickets />} />
+
 
 
                 <Route path="/community" element={<Community />} />
