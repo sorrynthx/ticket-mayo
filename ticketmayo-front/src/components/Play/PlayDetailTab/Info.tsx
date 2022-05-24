@@ -47,7 +47,7 @@ function Info() {
                 <Helmet>
                     <title>티켓마요-상세1</title>
                 </Helmet>    
-                <Header>Info</Header>
+                <Header>Info </Header>
                 
                 <InfoImage className="fluid" src={state.info} alt={state.title + " 이미지"} />
                 

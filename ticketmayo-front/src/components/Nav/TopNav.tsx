@@ -20,8 +20,8 @@ function TopNav() {
 
                 <Nav className="ml-auto">
                     <NavItem>
-                        <NavLink to="/play" className="nav-link" style={({isActive}) => (isActive ? {color: '#FF8FAB', background: '#f0f0f0'} : {color: '#000000'})}>
-                            공연
+                        <NavLink to="/tickets" className="nav-link" style={({isActive}) => (isActive ? {color: '#FF8FAB', background: '#f0f0f0'} : {color: '#000000'})}>
+                            양도티켓
                         </NavLink>
                     </NavItem>
                     <NavItem>

@@ -10,7 +10,7 @@ const tabs = [
         icon: faHome,
         label: ""
     }, {
-        route: "/play",
+        route: "/tickets",
         icon: faTicket,
         label: ""
     }, {
