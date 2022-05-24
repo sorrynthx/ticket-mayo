@@ -45,7 +45,7 @@ function Info() {
         <>   
             <Container>
                 <Helmet>
-                    <title>티켓마요-상세</title>
+                    <title>티켓마요-상세1</title>
                 </Helmet>    
                 <Header>Info</Header>
                 
