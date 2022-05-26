@@ -25,6 +25,8 @@ const TicketList = styled.div`
 const Ticket = styled.div`
    
     filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
+    box-shadow: 0 8px 30px rgb(255 229 236 / 100%) !important;
+    
     width: 255px;
     margin: 1.5rem auto 3rem;
     .top > div, .bottom > div  {padding: 0 18px;}
@@ -59,7 +61,7 @@ const Ticket = styled.div`
         border-bottom-right-radius: 5px;
         border-bottom-left-radius: 5px;
         padding: 18px;
-        height: 55px;
+        height: 60px;
         padding-top: 10px;
     }
     .bottom .barcode {
@@ -71,11 +73,23 @@ const Ticket = styled.div`
         display: block;
         font-size: 12px;
         //font-weight: bold;
-        background-color: #5D9CEC;
+        background-color: #FFC2D1;
         padding: 0 18px;
         line-height: 30px;
         border-radius: 15px;
-        color: #fff;
+        color: #000;
+        text-decoration: none;
+        height: 30px;
+    }
+    .bottom .sold {
+        display: block;
+        font-size: 12px;
+        //font-weight: bold;
+        background-color: #c9c9c9eb;
+        padding: 0 18px;
+        line-height: 30px;
+        border-radius: 15px;
+        color: #000;
         text-decoration: none;
         height: 30px;
     }
@@ -128,6 +142,7 @@ const TicketDatas = [
         grade: "VIP석",
         img: "https://ticketimage.interpark.com/Play/image/large/22/22000970_p.gif",
         price: "150,000원",
+        cnt: 0
         
     },
     {
@@ -138,6 +153,7 @@ const TicketDatas = [
         grade: "VIP석",
         img: "https://ticketimage.interpark.com/Play/image/large/22/22000970_p.gif",
         price: "150,000원",
+        cnt: 1
     },
     {
         id: 2,
@@ -146,7 +162,8 @@ const TicketDatas = [
         playLoc: "충무아트센터 대극장",
         grade: "VIP석",
         img: "https://ticketimage.interpark.com/Play/image/large/22/22000970_p.gif",
-        price: "150,000원",
+        price: "450,000원",
+        cnt: 3
     },
     {
         id: 3,
@@ -156,6 +173,7 @@ const TicketDatas = [
         grade: "VIP석",
         img: "https://ticketimage.interpark.com/Play/image/large/22/22000970_p.gif",
         price: "150,000원",
+        cnt: 1
     },
     {
         id: 4,
@@ -164,7 +182,8 @@ const TicketDatas = [
         playLoc: "충무아트센터 대극장",
         grade: "VIP석",
         img: "https://ticketimage.interpark.com/Play/image/large/22/22000970_p.gif",
-        price: "150,000원",
+        price: "300,000원",
+        cnt: 2
     }
 ];
 
@@ -184,29 +203,33 @@ function Tickets() {
                 <TicketList>
                     {TicketDatas.map((ticket) => (
                         <Ticket key={ticket.id} className="--flex-column ticket">
-                            <Link to="#">
-                                <div className="top --flex-column">
-                                    <div className="bandname -bold">{ticket.title}</div>
-                                    <div className="tourname">@홍대와합정</div>
-                                    <img src={ticket.img} alt="" />
-                                    
-                                    <div className="deetz --flex-row">
-                                        <div className="event --flex-column">
-                                            <div className="date">{ticket.open}</div>
-                                            <div className="location -bold">{ticket.playLoc}</div>
-                                        </div>
-                                        <div className="price --flex-column">
-                                            <div className="label">{ticket.grade}</div>
-                                            <div className="cost -bold">{ticket.price}</div>
-                                        </div>
+                            
+                            <div className="top --flex-column">
+                                <div className="bandname -bold">{ticket.title}</div>
+                                <div className="tourname mt-1">@홍대와합정</div>
+                                <img src={ticket.img} alt="" />
+                                
+                                <div className="deetz --flex-row">
+                                    <div className="event --flex-column">
+                                        <div className="date">{ticket.open}</div>
+                                        <div className="location -bold">{ticket.playLoc}</div>
+                                    </div>
+                                    <div className="price --flex-column">
+                                        <div className="label">{ticket.grade}({ticket.cnt})</div>
+                                        <div className="cost -bold">{ticket.price}</div>
                                     </div>
                                 </div>
-                                <div className="rip"></div>
-                                <div className="bottom --flex-row">
-                                    <div className="barcode"></div>
-                                    <button className="buy">양도티켓 구매</button>
-                                </div>
-                            </Link>
+                            </div>
+                            <div className="rip"></div>
+                            <div className="bottom --flex-row">
+                                <div className="barcode"></div>
+                                
+                                { 
+                                    ticket.cnt === 0 ? 
+                                    (<button className="sold">판매완료</button>) :
+                                    (<Link to="#"><button className="buy">양도티켓 구매</button></Link>)
+                                }
+                            </div>
                         </Ticket>
                     ))}
                 </TicketList>

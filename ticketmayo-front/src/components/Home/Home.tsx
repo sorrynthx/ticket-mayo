@@ -1,5 +1,7 @@
+import { Image } from "react-bootstrap";
 import { Helmet } from "react-helmet-async";
 import styled from "styled-components";
+import Card from "../Home/Card";
 
 const Container = styled.div`
     padding: 0px 20px;
@@ -12,6 +14,7 @@ const Header = styled.header`
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 1.5rem;
 `;
 
 function Home () {
@@ -20,7 +23,15 @@ function Home () {
             <Helmet>
                 <title>티켓마요-홈</title>
             </Helmet>
-            <Header>Home</Header>
+            <Header>
+                <>
+                    <Image src={require('../../assets/img/header.png')} className="rounded-3" style={{width: '185px', opacity: '0.5', marginTop: '40px', marginRight: '240px'}} alt="티켓 오픈 예정" />
+                    <span style={{position: 'absolute'}}>티켓 오픈 예정</span>
+                </>
+            </Header>
+            
+            <Card />
+            
         </Container>
     );
 };

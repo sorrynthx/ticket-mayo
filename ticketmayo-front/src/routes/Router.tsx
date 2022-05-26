@@ -21,14 +21,20 @@ import Actors from '../components/Play/PlayDetailTab/Actors';
 import Ticket from '../components/Play/PlayDetailTab/Ticket';
 import Restaurants from '../components/Play/PlayDetailTab/Restaurants';
 import Tickets from '../components/Tickets/Tickets';
+import HomeDetail from '../components/Home/HomeDetail';
 
 function Router() {
     return (       
         <BrowserRouter basename={process.env.PUBLIC_URL}>
             {/* Navigation */}
             <Navigation />
-            <Routes>
+            
+            <Routes> 
+                
                 <Route path="/" element={<Home />} />
+                <Route path="/home/Detail" element={<HomeDetail />} />
+                
+
                 <Route path="/play" element={<Play />} />
                 <Route path="/play/interpark" element={<Interpark />} />
                 <Route path="/play/yes24" element={<Yes24 />} />
