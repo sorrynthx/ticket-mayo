@@ -1,18 +1,21 @@
 {
   "files": {
     "main.css": "/ticket-mayo/static/css/main.e7720ab7.css",
-    "main.js": "/ticket-mayo/static/js/main.f32ccc65.js",
+    "main.js": "/ticket-mayo/static/js/main.e42437f9.js",
     "static/media/theater.jpg": "/ticket-mayo/static/media/theater.fb47ab43cf75df2581bf.jpg",
     "static/media/partnership.jpg": "/ticket-mayo/static/media/partnership.fb13dac68f053931ea4b.jpg",
-    "static/media/login.png": "/ticket-mayo/static/media/login.de414fcfb7d4da6ad8da.png",
-    "static/media/profile.png": "/ticket-mayo/static/media/profile.453af29bd9da7e84b797.png",
-    "static/media/header.png": "/ticket-mayo/static/media/header.7d44b1b7166480218acf.png",
+    "static/media/header2.png": "/ticket-mayo/static/media/header2.adf173909b0a113efeb1.png",
+    "static/media/login.png": "/ticket-mayo/static/media/login.84ddaf5a649b7848cd34.png",
+    "static/media/profile.png": "/ticket-mayo/static/media/profile.6aaa9e3579b4bc024613.png",
+    "static/media/header3.png": "/ticket-mayo/static/media/header3.b8348333b817f6f53598.png",
+    "static/media/header4.png": "/ticket-mayo/static/media/header4.33591e2523ae70c8d3e9.png",
+    "static/media/header1.png": "/ticket-mayo/static/media/header1.7d44b1b7166480218acf.png",
     "index.html": "/ticket-mayo/index.html",
     "main.e7720ab7.css.map": "/ticket-mayo/static/css/main.e7720ab7.css.map",
-    "main.f32ccc65.js.map": "/ticket-mayo/static/js/main.f32ccc65.js.map"
+    "main.e42437f9.js.map": "/ticket-mayo/static/js/main.e42437f9.js.map"
   },
   "entrypoints": [
     "static/css/main.e7720ab7.css",
-    "static/js/main.f32ccc65.js"
+    "static/js/main.e42437f9.js"
   ]
 }
