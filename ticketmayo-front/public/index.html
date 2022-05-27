@@ -30,8 +30,14 @@
   <!-- font -->
   <style> @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Oxygen&display=swap');</style>
   
-  <!-- Naver -->
-  <script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
+  <style>
+    #root {
+      background-image: url(./side_img_flower.png);
+      background-repeat: repeat;
+      background-size: contain;
+      z-index: -999;
+    }
+  </style>
 
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -47,4 +53,6 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
+   <!-- Naver -->
+   <script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
 </html>

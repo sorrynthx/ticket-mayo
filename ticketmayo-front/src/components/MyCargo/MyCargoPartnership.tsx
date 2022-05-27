@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet-async";
 import { useNavigate } from "react-router-dom";
 import styled, {keyframes} from "styled-components";
 import Image from 'react-bootstrap/Image'
+import { Link } from "react-router-dom";
 
 const rotaionAnimation = keyframes`
     from {transform: rotate(0deg);}
@@ -13,6 +14,7 @@ const rotaionAnimation = keyframes`
 const Container = styled.div`
     padding: 0px 20px;
     max-width: 480px;
+    min-height: 100vh;
     margin: 0 auto;
     .playImg {
         width: 100%;
@@ -33,7 +35,7 @@ const Header = styled.header`
     display: flex;
     justify-content: center;
     align-items: center;
-    span {
+    .goBack {
         margin-right: auto;
         cursor: pointer;
     }
@@ -50,9 +52,10 @@ function MyCargoPartnership() {
                     <title>제휴</title>
                 </Helmet>
                 <Header>
-                    <span onClick={() => navigate(-1)}>
+                    <Link className="goBack"
+                        to={`/myCargo`}>
                         <FontAwesomeIcon icon={faAngleLeft} />
-                    </span>
+                    </Link>
                     제휴
                 </Header>
 

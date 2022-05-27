@@ -3,16 +3,11 @@ import { Image } from "react-bootstrap";
 import { Helmet } from "react-helmet-async";
 import styled from "styled-components";
 
-const Header = styled.header`
-    height: 10vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-`;
 
 const Container = styled.div`
     padding: 0px 20px;
     max-width: 395px;
+    min-height: 100vh;
     margin: 5vh auto;
     justify-content: center;
     align-items: center;
@@ -20,8 +15,14 @@ const Container = styled.div`
     h2 {
         font-size: 1.5rem;
         margin-bottom: 5vh;
-    }
-   
+    }    
+`;
+
+const Header = styled.header`
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `;
 
 declare global {
@@ -62,7 +63,7 @@ function LoginNaver(props: any) {
                 </p>
 
                 <Image 
-                    className="rounded loginImg mt-2 mb-2" style={{maxWidth: '200px'}}
+                    className="rounded loginImg mt-2 mb-2" style={{maxWidth: '100%'}}
                     src={require('../../assets/img/login.png')} alt="로그인 이미지"
                 />
 

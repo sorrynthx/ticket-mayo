@@ -7,6 +7,7 @@ import styled from "styled-components";
 const Container = styled.div`
     padding: 0px 20px;
     max-width: 480px;
+    min-height: 100vh;
     margin: 0 auto;
 `;
 
@@ -15,6 +16,15 @@ const Header = styled.header`
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 1.5rem;
+`;
+
+const HeaderImg = styled.img`
+    width: 185px; 
+    opacity: 0.5;
+    margin-top: 60px;
+    margin-left: 185px;
+    z-index: -1;
 `;
 
 const Caption = styled.div`
@@ -53,8 +63,11 @@ function MyCargo() {
             <Helmet>
                 <title>티켓마요-내 창고</title>
             </Helmet>
-            <Header>
-                내 창고
+            <Header className="mb-5">
+                <>
+                    <HeaderImg src={require('../../assets/img/header3.png')} className="rounded-3" alt="헤더3 이미지" />
+                    <span style={{position: 'absolute'}}>내 창고</span>
+                </>
             </Header>
             <Caption>계정</Caption>
             <Ul>

@@ -2,12 +2,14 @@ import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Accordion } from "react-bootstrap";
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const Container = styled.div`
     padding: 0px 20px;
     max-width: 480px;
+    min-height: 100vh;
     margin: 0 auto;
     .accordion-button:not(.collapsed) {
         color: #FB6F92;
@@ -20,7 +22,7 @@ const Header = styled.header`
     display: flex;
     justify-content: center;
     align-items: center;
-    span {
+    .goBack {
         margin-right: auto;
         cursor: pointer;
     }
@@ -37,9 +39,10 @@ function MyCargoNotice() {
                     <title>공지사항</title>
                 </Helmet>
                 <Header>
-                    <span onClick={() => navigate(-1)}>
+                    <Link className="goBack"
+                        to={`/myCargo`}>
                         <FontAwesomeIcon icon={faAngleLeft} />
-                    </span>
+                    </Link>
                     공지사항
                 </Header>
 

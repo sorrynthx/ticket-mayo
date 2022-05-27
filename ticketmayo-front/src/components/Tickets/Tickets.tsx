@@ -1,13 +1,11 @@
 import { Helmet } from "react-helmet-async";
 import styled from "styled-components";
-import {faStar} from '@fortawesome/free-solid-svg-icons';
-import {faStar as faStarEmpty} from '@fortawesome/free-regular-svg-icons';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
     padding: 0px 20px;
     max-width: 485px;
+    min-height: 100vh;
     margin: 0 auto;
 `;
 
@@ -16,6 +14,15 @@ const Header = styled.header`
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 1.5rem;
+`;
+
+const HeaderImg = styled.img`
+    width: 185px; 
+    opacity: 0.5;
+    margin-top: 40px;
+    margin-right: 240px;
+    z-index: -1;
 `;
 
 const TicketList = styled.div`
@@ -196,9 +203,14 @@ function Tickets() {
                 <Helmet>
                     <title>티켓마요-티켓</title>
                 </Helmet>    
-                <Header>양도 티켓</Header>
+                <Header>
+                    <>
+                        <HeaderImg src={require('../../assets/img/header2.png')} className="rounded-3" alt="헤더2 이미지" />
+                        <span style={{position: 'absolute'}}>양도 티켓</span>
+                    </>
+                </Header>
                 
-                <h3 className="text-center">개인사정으로 양도된 티켓을 판매합니다.</h3>
+                {/* <h3 className="text-center">개인사정으로 양도된 티켓을 판매합니다.</h3> */}
 
                 <TicketList>
                     {TicketDatas.map((ticket) => (

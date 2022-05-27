@@ -1,4 +1,3 @@
-import { Image } from "react-bootstrap";
 import { Helmet } from "react-helmet-async";
 import styled from "styled-components";
 import Card from "../Home/Card";
@@ -6,6 +5,7 @@ import Card from "../Home/Card";
 const Container = styled.div`
     padding: 0px 20px;
     max-width: 480px;
+    min-height: 100vh;
     margin: 0 auto;
 `;
 
@@ -17,6 +17,14 @@ const Header = styled.header`
     font-size: 1.5rem;
 `;
 
+const HeaderImg = styled.img`
+    width: 185px; 
+    opacity: 0.5;
+    margin-top: 40px;
+    margin-right: 240px;
+    z-index: -1;
+`;
+
 function Home () {
     return (
         <Container>
@@ -25,13 +33,15 @@ function Home () {
             </Helmet>
             <Header>
                 <>
-                    <Image src={require('../../assets/img/header.png')} className="rounded-3" style={{width: '185px', opacity: '0.5', marginTop: '40px', marginRight: '240px'}} alt="티켓 오픈 예정" />
+                    <HeaderImg src={require('../../assets/img/header1.png')} className="rounded-3" alt="헤더1 이미지" />
                     <span style={{position: 'absolute'}}>티켓 오픈 예정</span>
                 </>
             </Header>
             
+            {/* List Start */}
             <Card />
-            
+            {/* List End */}
+
         </Container>
     );
 };

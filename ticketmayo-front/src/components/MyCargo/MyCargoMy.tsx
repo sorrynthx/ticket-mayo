@@ -1,6 +1,5 @@
 import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Col, FloatingLabel, Form, Image, Row } from "react-bootstrap";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
@@ -8,6 +7,7 @@ import styled from "styled-components";
 const Container = styled.div`
     padding: 0px 20px;
     max-width: 480px;
+    min-height: 100vh;
     margin: 0 auto;
     .accordion-button:not(.collapsed) {
         color: #FB6F92;
@@ -64,10 +64,10 @@ function MyCargoMy() {
                 </Header>
 
                 <div className="row justify-content-center">
-                    <div className="col-lg-4 text-center">
+                    <div className="text-center">
                         <figure className="avatar ms-auto me-auto mb-0 mt-2 w100">
                         <ProfileImg 
-                            className="shadow-sm w-100" style={{maxWidth: '200px'}}
+                            className="w-100 fluid" style={{maxWidth: '100%'}}
                             src={require('../../assets/img/profile.png')} alt="프로필 이미지"
                         />
                         </figure>
