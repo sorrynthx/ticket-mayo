@@ -1,4 +1,4 @@
-import { Badge } from "react-bootstrap";
+import { Badge, Image } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faHeart} from '@fortawesome/free-solid-svg-icons';
 import styled from "styled-components";
@@ -72,7 +72,7 @@ const PlayDescription = styled.div`
     }
 `;
 
-const Image = styled.img`
+const PlayImage = styled.img`
     width: 7rem;
 `;
 const ImageWrap = styled.div`
@@ -93,6 +93,24 @@ const Rating = styled.div`
     color: #FF8FAB;
     width: 100%;
     font-weight: 100;
+`;
+
+const CastingImage = styled.img`
+    width: 50px;
+`;
+const CastingWrap = styled.ul`
+    max-width: 405px;
+    height: 110px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    padding: 0;
+    display: flex;
+`;
+const CastingImageWrap = styled.li`
+    float: left;
+    margin: 5px;
+    max-width: 55px;
+    text-align: center;
 `;
 
 const Badge_P = (text: any) => {
@@ -117,7 +135,7 @@ const Ad = ({play}: IInfo) => {
                 <div className="card-body d-block p-0 mb-3">
                     <div className="row ps-2 pe-2">
                         <div className="col-sm-12 p-1 text-center">
-                            <Image src={require('../../assets/img/profile.png')} className="rounded-3" alt="post" />
+                            <PlayImage src={require('../../assets/img/profile.png')} className="rounded-3" alt="post" />
                         </div>
                     </div>
                 </div>
@@ -154,10 +172,14 @@ interface IInfo  {
         title: string,
         date: string,
         image: string,
-        description: string,
         provider: string,
         link: string,
         cnt: number,
+        casting: {
+            castingImage: string,
+            castingName: string
+        }[]
+        
     }
 };
 
@@ -168,7 +190,7 @@ const Info = ({play}: IInfo) => {
                 <PlayDescription className="card-body p-0">
                     <InnerWrap className="">
                         <ImageWrap className="p-1">
-                            <Image src={play.image !== '' ? play.image : require('../../assets/img/theater.jpg')} className="rounded-3" alt="post" />
+                            <PlayImage src={play.image !== '' ? play.image : require('../../assets/img/theater.jpg')} className="rounded-3" alt="post" />
                         </ImageWrap>
 
                         <div className="card-body p-0">
@@ -181,6 +203,17 @@ const Info = ({play}: IInfo) => {
                     </InnerWrap>
                     <Badge_P provider={play.provider} />
                 </PlayDescription>
+
+                <CastingWrap>
+                    {play.casting.map((cast) => (
+                        <CastingImageWrap className="castingWrap">
+                            <CastingImage className="thumbnail rounded" src={cast.castingImage} />
+                            <br/>
+                            {cast.castingName}
+                        </CastingImageWrap>
+                    ))}
+                </CastingWrap>
+
             </PlayInfo>
         </a>
     )    
@@ -192,90 +225,259 @@ const playDatas = [
         title: '뮤지컬 〈웃는 남자〉 2차 티켓오픈 안내',
         date: '22.05.17(화) 14:00',
         image: 'http://ticketimage.interpark.com/Play/image/large/22/22004761_p.gif',
-        description: '한국 창작 뮤지컬의 자부심이 돌아온다! 사상 초유의 흥행 대작! “제7회 예그린뮤지컬어워드 6관왕, 제3회 한국뮤지컬어워즈 3관왕, 제6회 이데일리 문화대상 뮤지컬부문 최우수상, 제14회 골든티켓어워즈 대상 및 뮤지컬 최우수상” 현존하는 뮤지컬 시상식을 모두 휩',
         provider: "인터파크",
         link: "http://ticket.interpark.com/webzine/paper/TPNoticeView.asp?bbsno=34&pageno=1&stext=&no=43018&groupno=43018&seq=0&KindOfGoods=TICKET&Genre=1&sort=opendate",
         cnt: 324,
+        casting: [
+            {
+                "castingImage": "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/12/09/0400041209_29854_02111.gif", 
+                "castingName": "이석훈"
+            },
+            {
+                "castingImage": "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/11/12/0400041112_27536_021.gif", 
+                "castingName": "김성규"
+            },
+            {
+                "castingImage": "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/12/10/0400041210_30078_02919.gif", 
+                "castingName": "신재범"
+            },
+            {
+                "castingImage": "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/08/11/0400040811_11862_02831.gif", 
+                "castingName": "최재림"
+            },
+            {
+                "castingImage": "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/12/09/0400041209_29854_02111.gif", 
+                "castingName": "이석훈"
+            },
+            {
+                "castingImage": "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/11/12/0400041112_27536_021.gif", 
+                "castingName": "김성규"
+            },
+            {
+                "castingImage": "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/12/10/0400041210_30078_02919.gif", 
+                "castingName": "신재범"
+            },
+            {
+                "castingImage": "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/08/11/0400040811_11862_02831.gif", 
+                "castingName": "최재림"
+            }
+        ]
     },
     {
         id: 1,
         title: '뮤지컬 〈웃는 남자〉 2차 티켓오픈 안내',
         date: '22.05.17(화) 14:00',
         image: '',
-        description: '한국 창작 뮤지컬의 자부심이 돌아온다! 사상 초유의 흥행 대작! “제7회 예그린뮤지컬어워드 6관왕, 제3회 한국뮤지컬어워즈 3관왕, 제6회 이데일리 문화대상 뮤지컬부문 최우수상, 제14회 골든티켓어워즈 대상 및 뮤지컬 최우수상” 현존하는 뮤지컬 시상식을 모두 휩',
         provider: "예스24",
         link: "http://ticket.interpark.com/webzine/paper/TPNoticeView.asp?bbsno=34&pageno=1&stext=&no=43018&groupno=43018&seq=0&KindOfGoods=TICKET&Genre=1&sort=opendate",
         cnt: 324,
+        casting: [
+            {
+                "castingImage": "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/12/09/0400041209_29854_02111.gif", 
+                "castingName": "이석훈"
+            },
+            {
+                "castingImage": "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/11/12/0400041112_27536_021.gif", 
+                "castingName": "김성규"
+            },
+            {
+                "castingImage": "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/12/10/0400041210_30078_02919.gif", 
+                "castingName": "신재범"
+            },
+            {
+                "castingImage": "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/08/11/0400040811_11862_02831.gif", 
+                "castingName": "최재림"
+            }
+        ]
     },
     {
         id: 2,
         title: '뮤지컬 〈웃는 남자〉 2차 티켓오픈 안내',
         date: '22.05.17(화) 14:00',
         image: 'http://ticketimage.interpark.com/Play/image/large/22/22004761_p.gif',
-        description: '한국 창작 뮤지컬의 자부심이 돌아온다! 사상 초유의 흥행 대작! “제7회 예그린뮤지컬어워드 6관왕, 제3회 한국뮤지컬어워즈 3관왕, 제6회 이데일리 문화대상 뮤지컬부문 최우수상, 제14회 골든티켓어워즈 대상 및 뮤지컬 최우수상” 현존하는 뮤지컬 시상식을 모두 휩',
         provider: "",
         link: "http://ticket.interpark.com/webzine/paper/TPNoticeView.asp?bbsno=34&pageno=1&stext=&no=43018&groupno=43018&seq=0&KindOfGoods=TICKET&Genre=1&sort=opendate",
         cnt: 324,
+        casting: [
+            {
+                "castingImage": "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/12/09/0400041209_29854_02111.gif", 
+                "castingName": "이석훈"
+            },
+            {
+                "castingImage": "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/11/12/0400041112_27536_021.gif", 
+                "castingName": "김성규"
+            },
+            {
+                "castingImage": "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/12/10/0400041210_30078_02919.gif", 
+                "castingName": "신재범"
+            },
+            {
+                "castingImage": "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/08/11/0400040811_11862_02831.gif", 
+                "castingName": "최재림"
+            }
+        ]
     },
     {
         id: 3,
         title: '뮤지컬 〈웃는 남자〉 2차 티켓오픈 안내',
         date: '22.05.17(화) 14:00',
         image: 'http://ticketimage.interpark.com/Play/image/large/22/22004761_p.gif',
-        description: '한국 창작 뮤지컬의 자부심이 돌아온다! 사상 초유의 흥행 대작! “제7회 예그린뮤지컬어워드 6관왕, 제3회 한국뮤지컬어워즈 3관왕, 제6회 이데일리 문화대상 뮤지컬부문 최우수상, 제14회 골든티켓어워즈 대상 및 뮤지컬 최우수상” 현존하는 뮤지컬 시상식을 모두 휩',
         provider: "인터파크",
         link: "http://ticket.interpark.com/webzine/paper/TPNoticeView.asp?bbsno=34&pageno=1&stext=&no=43018&groupno=43018&seq=0&KindOfGoods=TICKET&Genre=1&sort=opendate",
         cnt: 324,
+        casting: [
+            {
+                "castingImage": "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/12/09/0400041209_29854_02111.gif", 
+                "castingName": "이석훈"
+            },
+            {
+                "castingImage": "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/11/12/0400041112_27536_021.gif", 
+                "castingName": "김성규"
+            },
+            {
+                "castingImage": "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/12/10/0400041210_30078_02919.gif", 
+                "castingName": "신재범"
+            },
+            {
+                "castingImage": "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/08/11/0400040811_11862_02831.gif", 
+                "castingName": "최재림"
+            }
+        ]
     },
     {
         id: 4,
         title: '뮤지컬 〈웃는 남자〉 2차 티켓오픈 안내',
         date: '22.05.17(화) 14:00',
         image: 'http://ticketimage.interpark.com/Play/image/large/22/22004761_p.gif',
-        description: '한국 창작 뮤지컬의 자부심이 돌아온다! 사상 초유의 흥행 대작! “제7회 예그린뮤지컬어워드 6관왕, 제3회 한국뮤지컬어워즈 3관왕, 제6회 이데일리 문화대상 뮤지컬부문 최우수상, 제14회 골든티켓어워즈 대상 및 뮤지컬 최우수상” 현존하는 뮤지컬 시상식을 모두 휩',
         provider: "인터파크",
         link: "http://ticket.interpark.com/webzine/paper/TPNoticeView.asp?bbsno=34&pageno=1&stext=&no=43018&groupno=43018&seq=0&KindOfGoods=TICKET&Genre=1&sort=opendate",
         cnt: 324,
+        casting: [
+            {
+                "castingImage": "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/12/09/0400041209_29854_02111.gif", 
+                "castingName": "이석훈"
+            },
+            {
+                "castingImage": "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/11/12/0400041112_27536_021.gif", 
+                "castingName": "김성규"
+            },
+            {
+                "castingImage": "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/12/10/0400041210_30078_02919.gif", 
+                "castingName": "신재범"
+            },
+            {
+                "castingImage": "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/08/11/0400040811_11862_02831.gif", 
+                "castingName": "최재림"
+            }
+        ]
     },
     {
         id: 5,
         title: '뮤지컬 〈웃는 남자〉 2차 티켓오픈 안내',
         date: '22.05.17(화) 14:00',
         image: 'http://ticketimage.interpark.com/Play/image/large/22/22004761_p.gif',
-        description: '한국 창작 뮤지컬의 자부심이 돌아온다! 사상 초유의 흥행 대작! “제7회 예그린뮤지컬어워드 6관왕, 제3회 한국뮤지컬어워즈 3관왕, 제6회 이데일리 문화대상 뮤지컬부문 최우수상, 제14회 골든티켓어워즈 대상 및 뮤지컬 최우수상” 현존하는 뮤지컬 시상식을 모두 휩',
         provider: "인터파크",
         link: "http://ticket.interpark.com/webzine/paper/TPNoticeView.asp?bbsno=34&pageno=1&stext=&no=43018&groupno=43018&seq=0&KindOfGoods=TICKET&Genre=1&sort=opendate",
         cnt: 324,
+        casting: [
+            {
+                "castingImage": "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/12/09/0400041209_29854_02111.gif", 
+                "castingName": "이석훈"
+            },
+            {
+                "castingImage": "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/11/12/0400041112_27536_021.gif", 
+                "castingName": "김성규"
+            },
+            {
+                "castingImage": "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/12/10/0400041210_30078_02919.gif", 
+                "castingName": "신재범"
+            },
+            {
+                "castingImage": "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/08/11/0400040811_11862_02831.gif", 
+                "castingName": "최재림"
+            }
+        ]
     },
     {
         id: 6,
         title: '뮤지컬 〈웃는 남자〉 2차 티켓오픈 안내',
         date: '22.05.17(화) 14:00',
         image: 'http://ticketimage.interpark.com/Play/image/large/22/22004761_p.gif',
-        description: '한국 창작 뮤지컬의 자부심이 돌아온다! 사상 초유의 흥행 대작! “제7회 예그린뮤지컬어워드 6관왕, 제3회 한국뮤지컬어워즈 3관왕, 제6회 이데일리 문화대상 뮤지컬부문 최우수상, 제14회 골든티켓어워즈 대상 및 뮤지컬 최우수상” 현존하는 뮤지컬 시상식을 모두 휩',
         provider: "예스24",
         link: "http://ticket.interpark.com/webzine/paper/TPNoticeView.asp?bbsno=34&pageno=1&stext=&no=43018&groupno=43018&seq=0&KindOfGoods=TICKET&Genre=1&sort=opendate",
         cnt: 324,
+        casting: [
+            {
+                "castingImage": "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/12/09/0400041209_29854_02111.gif", 
+                "castingName": "이석훈"
+            },
+            {
+                "castingImage": "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/11/12/0400041112_27536_021.gif", 
+                "castingName": "김성규"
+            },
+            {
+                "castingImage": "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/12/10/0400041210_30078_02919.gif", 
+                "castingName": "신재범"
+            },
+            {
+                "castingImage": "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/08/11/0400040811_11862_02831.gif", 
+                "castingName": "최재림"
+            }
+        ]
     },
     {
         id: 7,
         title: '뮤지컬 〈웃는 남자〉 2차 티켓오픈 안내',
         date: '22.05.17(화) 14:00',
         image: 'http://ticketimage.interpark.com/Play/image/large/22/22004761_p.gif',
-        description: '한국 창작 뮤지컬의 자부심이 돌아온다! 사상 초유의 흥행 대작! “제7회 예그린뮤지컬어워드 6관왕, 제3회 한국뮤지컬어워즈 3관왕, 제6회 이데일리 문화대상 뮤지컬부문 최우수상, 제14회 골든티켓어워즈 대상 및 뮤지컬 최우수상” 현존하는 뮤지컬 시상식을 모두 휩',
         provider: "인터파크",
         link: "http://ticket.interpark.com/webzine/paper/TPNoticeView.asp?bbsno=34&pageno=1&stext=&no=43018&groupno=43018&seq=0&KindOfGoods=TICKET&Genre=1&sort=opendate",
         cnt: 324,
+        casting: [
+            {
+                "castingImage": "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/12/09/0400041209_29854_02111.gif", 
+                "castingName": "이석훈"
+            },
+            {
+                "castingImage": "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/11/12/0400041112_27536_021.gif", 
+                "castingName": "김성규"
+            },
+            {
+                "castingImage": "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/12/10/0400041210_30078_02919.gif", 
+                "castingName": "신재범"
+            },
+            {
+                "castingImage": "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/08/11/0400040811_11862_02831.gif", 
+                "castingName": "최재림"
+            }
+        ]
     },
     {
         id: 8,
         title: '뮤지컬 〈웃는 남자〉 2차 티켓오픈 안내',
         date: '22.05.17(화) 14:00',
         image: 'http://ticketimage.interpark.com/Play/image/large/22/22004761_p.gif',
-        description: '한국 창작 뮤지컬의 자부심이 돌아온다! 사상 초유의 흥행 대작! “제7회 예그린뮤지컬어워드 6관왕, 제3회 한국뮤지컬어워즈 3관왕, 제6회 이데일리 문화대상 뮤지컬부문 최우수상, 제14회 골든티켓어워즈 대상 및 뮤지컬 최우수상” 현존하는 뮤지컬 시상식을 모두 휩',
         provider: "예스24",
         link: "http://ticket.interpark.com/webzine/paper/TPNoticeView.asp?bbsno=34&pageno=1&stext=&no=43018&groupno=43018&seq=0&KindOfGoods=TICKET&Genre=1&sort=opendate",
         cnt: 324,
+        casting: [
+            {
+                "castingImage": "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/12/09/0400041209_29854_02111.gif", 
+                "castingName": "이석훈"
+            },
+            {
+                "castingImage": "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/11/12/0400041112_27536_021.gif", 
+                "castingName": "김성규"
+            },
+            {
+                "castingImage": "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/12/10/0400041210_30078_02919.gif", 
+                "castingName": "신재범"
+            },
+            {
+                "castingImage": "http://ticketimage.interpark.com/PlayDictionary/DATA/PlayDic/PlayDicUpload/040004/08/11/0400040811_11862_02831.gif", 
+                "castingName": "최재림"
+            }
+        ]
     },
 ];
 
