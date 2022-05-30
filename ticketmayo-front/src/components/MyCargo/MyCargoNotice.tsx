@@ -29,8 +29,6 @@ const Header = styled.header`
 `;
 
 function MyCargoNotice() {
-    
-    let navigate = useNavigate();
 
     return (
         <>

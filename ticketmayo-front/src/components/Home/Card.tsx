@@ -2,6 +2,7 @@ import { Badge } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faHeart} from '@fortawesome/free-solid-svg-icons';
 import styled from "styled-components";
+import { useEffect } from "react";
 
 const CardList = styled.div`
     padding-bottom: 100px;
@@ -280,6 +281,16 @@ const playDatas = [
 
 function Card () {
     
+    useEffect(() => {
+        return () => {
+            (async() => {
+              const response = await fetch("http://localhost:5000/api_v1/scraping1");
+              const json = await response.json();
+              console.log(json);
+            })();
+        }
+    }, [])
+
     return (
         <>
         <CardList>
