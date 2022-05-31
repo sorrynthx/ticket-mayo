@@ -1,0 +1,21 @@
+# 바벨 + 모던자바스크립트
+npm i @babel/core
+npm i @babel/node
+npm i @babel/preset-env
+
+# 라이브러리
+npm i express
+npm i cookie-parser
+npm i errorhandler
+npm i express-error-handler
+npm i cors
+npm i node-fetch
+
+# public 접근
+npm i serve-static
+
+# Puppeteer (스크래핑)
+npm i puppeteer
+
+# node-cron (스케줄러)
+npm install node-cron

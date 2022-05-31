@@ -1,0 +1,40 @@
+{
+  "dependencies": {
+    "@babel/core": "^7.18.2",
+    "@babel/node": "^7.17.10",
+    "body-parser": "^1.20.0",
+    "cookie-parser": "^1.4.6",
+    "core-js": "^3.22.7",
+    "cors": "^2.8.5",
+    "errorhandler": "^1.5.1",
+    "express": "^4.18.1",
+    "express-error-handler": "^1.1.0",
+    "node-cron": "^3.0.0",
+    "node-fetch": "^3.2.4",
+    "puppeteer": "^14.1.1",
+    "serve-static": "^1.15.0"
+  },
+  "name": "node_server1",
+  "description": "노드서버1: 네이버 쇼핑 트렌드 키워드 수집",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "babel-node init.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baronsoft2019/startseller_nodeServer1.git"
+  },
+  "author": "kyunggonKim",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/baronsoft2019/startseller_nodeServer1/issues"
+  },
+  "homepage": "https://github.com/baronsoft2019/startseller_nodeServer1#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.17.10",
+    "@babel/preset-env": "^7.18.2"
+  },
+  "type": "module"
+}
