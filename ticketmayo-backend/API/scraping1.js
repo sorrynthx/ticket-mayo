@@ -87,5 +87,3 @@ async function getOne(page, index) {
 
     return Promise.resolve(data);
 }
-
-scraping1();

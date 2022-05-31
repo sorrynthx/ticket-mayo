@@ -2,15 +2,14 @@ import cron from 'node-cron';
 import fs from 'fs';
 import {scraping1} from '../API/scraping1.js';
 
-// 실행주기 (분,시,일,월,요일) * 10,18 * * * 
-export const schedule1 = cron.schedule('10 * * * *', function () {
+// 실행주기 (분,시,일,월,요일) * 10,18 * * * export
+export const a = cron.schedule('40 * * * *', function() {
+    
     const today = new Date();
     let today_string = (today.getFullYear() + '-' + (today.getMonth()+1) + '-' + today.getDate());
     let fileLoc = './dataFile/';
     let fileName = today_string + '.txt';
     
-    console.log(fileLoc+fileName);
-
     (async () => {
         let result = await scraping1();
         
@@ -23,8 +22,6 @@ export const schedule1 = cron.schedule('10 * * * *', function () {
         
     })();
     
-}, {
-    scheduled: false
 });
 
-//schedule1.start();
+//a.start();

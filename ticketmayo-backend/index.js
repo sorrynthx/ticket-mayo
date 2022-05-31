@@ -6,7 +6,7 @@ import path from 'path';
 const __dirname = path.resolve();
 import expressErrorHandler from 'express-error-handler';
 import fs from 'fs';
-import {schedule1} from './Schedule/Scheduler.js';
+import {a} from './Schedule/Scheduler.js';
 
 // Express 객체 생성
 const app = express();
@@ -39,9 +39,6 @@ const errorHandler = expressErrorHandler({
 });
 app.use(expressErrorHandler.httpError(404));
 app.use(errorHandler);
-
-// 스케줄러
-schedule1.start();
 
 /* ============================== api ============================== */
 /*  400 요청변수 확인
