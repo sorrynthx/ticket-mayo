@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import ModalSheet_c9 from "./ModalSheet_c9"; 
 
 const Container = styled.div`
     padding: 0px 20px;
@@ -106,6 +107,18 @@ const Ticket = styled.div`
         text-decoration: none;
         height: 30px;
     }
+    .bottom .ing {
+        display: block;
+        font-size: 12px;
+        //font-weight: bold;
+        background-color: #53d85e;
+        padding: 0 18px;
+        line-height: 30px;
+        border-radius: 15px;
+        color: #000;
+        text-decoration: none;
+        height: 30px;
+    }
     .rip {
         height: 20px;
         margin: 0 10px;
@@ -166,7 +179,7 @@ const TicketDatas = [
         grade: "VIP석",
         img: "https://ticketimage.interpark.com/Play/image/large/22/22000970_p.gif",
         price: "150,000원",
-        cnt: 1
+        cnt: -1
     },
     {
         id: 2,
@@ -217,12 +230,11 @@ function Tickets() {
                 </Header>
                 
                 {/* <h3 className="text-center">개인사정으로 양도된 티켓을 판매합니다.</h3> */}
-
+                <ModalSheet_c9/>
                 <TicketList>
                     
                     {TicketDatas.map((ticket) => (
-                        <Ticket key={ticket.id} className="--flex-column ticket">
-                            
+                        <Ticket key={ticket.id} className="--flex-column ticket">        
                             <div className="top --flex-column">
                                 <div className="bandname -bold">{ticket.title}</div>
                                 <div className="tourname mt-1">@홍대와합정</div>
@@ -241,19 +253,25 @@ function Tickets() {
                             </div>
                             <div className="rip"></div>
                             <div className="bottom --flex-row">
-                                <div className="barcode"></div>
+                                <div className="barcode">
+                                    <div style={{'marginTop': '18px', 'fontSize': '0.6rem'}}>{new Date().getTime()+""}</div>
+                                </div>
+                                
                                 { 
                                     ticket.cnt === 0 ? 
                                     (<button className="sold">판매완료</button>) :
+                                    ticket.cnt === -1 ?
+                                    (<button className="ing">거래 대기중...</button>) :
                                     (<Link to="#"><button className="buy">양도티켓 구매</button></Link>)
                                 }
                             </div>
                         </Ticket>
                     ))}
-                    
                 </TicketList>
                
             </Container> 
+
+            
         </>
     );
 };

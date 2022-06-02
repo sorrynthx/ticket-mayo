@@ -41,6 +41,9 @@ npm i --save @fortawesome/free-regular-svg-icons
 npm i --save reactstrap
 npm i --save-dev @types/reactstrap
 
+# react bottom sheet
+
+
 # react-hook form 설치 (not)
 npm install react-hook-form
 
