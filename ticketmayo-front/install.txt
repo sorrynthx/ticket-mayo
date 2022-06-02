@@ -42,5 +42,9 @@ npm i --save reactstrap
 npm i --save-dev @types/reactstrap
 
 # react-hook form 설치 (not)
+npm install react-hook-form
 
+# 리액트 쿼리   (not)
+npm i react-query
+npm i @types/react-query
 
