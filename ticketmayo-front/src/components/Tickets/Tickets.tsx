@@ -1,7 +1,8 @@
 import { Helmet } from "react-helmet-async";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import ModalSheet_c9 from "./ModalSheet_c9"; 
+import BottomSheet from "./BottomSheet";
+import { useState } from "react";
 
 const Container = styled.div`
     padding: 0px 20px;
@@ -216,6 +217,9 @@ const TicketDatas = [
 
 function Tickets() {
     
+    const [isOpen, setOpen] = useState(false);
+    const [ticketId, setTicketId] = useState(0);
+
     return (
         <>   
             <Container>
@@ -229,10 +233,8 @@ function Tickets() {
                     </>
                 </Header>
                 
-                {/* <h3 className="text-center">개인사정으로 양도된 티켓을 판매합니다.</h3> */}
-                <ModalSheet_c9/>
-                <TicketList>
-                    
+                
+                <TicketList>    
                     {TicketDatas.map((ticket) => (
                         <Ticket key={ticket.id} className="--flex-column ticket">        
                             <div className="top --flex-column">
@@ -262,16 +264,23 @@ function Tickets() {
                                     (<button className="sold">판매완료</button>) :
                                     ticket.cnt === -1 ?
                                     (<button className="ing">거래 대기중...</button>) :
-                                    (<Link to="#"><button className="buy">양도티켓 구매</button></Link>)
+                                    (<button className="buy" onClick={() => { return (setOpen(true), setTicketId(ticket.id)) }}>양도티켓 구매</button>)
                                 }
                             </div>
+                            
                         </Ticket>
                     ))}
+
                 </TicketList>
                
             </Container> 
-
             
+            {/* BottomSheet*/}
+            <BottomSheet 
+                value={isOpen} 
+                setValue={setOpen} 
+                ticketId={ticketId}           
+            />
         </>
     );
 };

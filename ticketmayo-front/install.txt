@@ -42,7 +42,8 @@ npm i --save reactstrap
 npm i --save-dev @types/reactstrap
 
 # react bottom sheet
-
+npm i react-modal-sheet
+npm install framer-motion@4.1.17
 
 # react-hook form 설치 (not)
 npm install react-hook-form
