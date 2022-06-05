@@ -165,52 +165,72 @@ const TicketDatas = [
         id: 0,
         title: "뮤지컬 데스노트 (Death Note)",
         open: "2022.06.26",
+        openTime: "19:30",
         playLoc: "충무아트센터 대극장",
         grade: "VIP석",
         img: "https://ticketimage.interpark.com/Play/image/large/22/22000970_p.gif",
-        price: "150,000원",
-        cnt: 0
+        price: 150000,
+        cnt: 0,
+        payNumber: 1654402449210,
+        seatInfo: "1층 A블럭 3열 12번",
+        deliverFee: 0,
         
     },
     {
         id: 1,
         title: "뮤지컬 데스노트 (Death Note)",
         open: "2022.06.26",
+        openTime: "19:30",
         playLoc: "충무아트센터 대극장",
         grade: "VIP석",
         img: "https://ticketimage.interpark.com/Play/image/large/22/22000970_p.gif",
-        price: "150,000원",
-        cnt: -1
+        price: 150000,
+        cnt: -1,
+        payNumber: 1654402449211,
+        seatInfo: "1층 A블럭 3열 12번",
+        deliverFee: 0,
     },
     {
         id: 2,
         title: "뮤지컬 데스노트 (Death Note)",
         open: "2022.06.26",
+        openTime: "19:30",
         playLoc: "충무아트센터 대극장",
         grade: "VIP석",
         img: "https://ticketimage.interpark.com/Play/image/large/22/22000970_p.gif",
-        price: "450,000원",
-        cnt: 3
+        price: 150000,
+        cnt: 1,
+        payNumber: 1654402449212,
+        seatInfo: "1층 A블럭 3열 12번",
+        deliverFee: 3000,
     },
     {
         id: 3,
         title: "뮤지컬 데스노트 (Death Note)",
         open: "2022.06.26",
+        openTime: "19:30",
         playLoc: "충무아트센터 대극장",
         grade: "VIP석",
         img: "https://ticketimage.interpark.com/Play/image/large/22/22000970_p.gif",
-        price: "150,000원",
-        cnt: 1
+        price: 150000,
+        cnt: 1,
+        payNumber: 1654402449213,
+        seatInfo: "1층 A블럭 3열 12번",
+        deliverFee: 3000,
     },
     {
         id: 4,
         title: "뮤지컬 데스노트 (Death Note)",
         open: "2022.06.26",
+        openTime: "19:30",
         playLoc: "충무아트센터 대극장",
         grade: "VIP석",
         img: "https://ticketimage.interpark.com/Play/image/large/22/22000970_p.gif",
-        price: "300,000원",
-        cnt: 2
+        price: 150000,
+        cnt: 1,
+        payNumber: 1654402449214,
+        seatInfo: "1층 A블럭 3열 12번",
+        deliverFee: 3000,
     }
 ];
 
@@ -219,6 +239,7 @@ function Tickets() {
     
     const [isOpen, setOpen] = useState(false);
     const [ticketId, setTicketId] = useState(0);
+    const [ticketInfo, setTicketInfo] = useState(TicketDatas[0]);
 
     return (
         <>   
@@ -256,7 +277,7 @@ function Tickets() {
                             <div className="rip"></div>
                             <div className="bottom --flex-row">
                                 <div className="barcode">
-                                    <div style={{'marginTop': '18px', 'fontSize': '0.6rem'}}>{new Date().getTime()+""}</div>
+                                    <div style={{'marginTop': '18px', 'fontSize': '0.6rem'}}>{ticket.payNumber}</div>
                                 </div>
                                 
                                 { 
@@ -264,7 +285,7 @@ function Tickets() {
                                     (<button className="sold">판매완료</button>) :
                                     ticket.cnt === -1 ?
                                     (<button className="ing">거래 대기중...</button>) :
-                                    (<button className="buy" onClick={() => { return (setOpen(true), setTicketId(ticket.id)) }}>양도티켓 구매</button>)
+                                    (<button className="buy" onClick={() => { return (setOpen(true), setTicketId(ticket.id), setTicketInfo(ticket)) }}>양도티켓 구매</button>)
                                 }
                             </div>
                             
@@ -278,8 +299,9 @@ function Tickets() {
             {/* BottomSheet*/}
             <BottomSheet 
                 value={isOpen} 
-                setValue={setOpen} 
-                ticketId={ticketId}           
+                ticketId={ticketId}
+                ticketInfo={ticketInfo}           
+                setOpen={setOpen}
             />
         </>
     );
