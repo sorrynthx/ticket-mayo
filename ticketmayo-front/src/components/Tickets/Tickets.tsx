@@ -245,15 +245,20 @@ const BtnArea = styled.div`
     }
 `;
 
+const BottomSheetWrap = styled.div`
+    max-height: 40vh;
+    overflow-y: scroll;
+`;
+
 const BottomSheet = (props:any) => {
     const ticketInfo = props.ticketInfo;
     return (
-        <>
-          <Sheet isOpen={props.value} onClose={() => props.setOpen(false)} snapPoints={[0.5]}>
+        <BottomSheetWrap>
+          <Sheet isOpen={props.value} onClose={() => props.setOpen(false)} snapPoints={[0.75]}>
             <Sheet.Container>
               <Sheet.Header />
               <Sheet.Content>
-                <>
+                
                   <PayProcess>
                     <div className="col-12 mx-auto mt-1 mb-1">
                       <div className="multisteps-form__progress">
@@ -283,14 +288,13 @@ const BottomSheet = (props:any) => {
                     <a href="https://www.caci.or.kr/caci/main/contents.do?menuNo=200011" target="_blank" className="btn my-1">좌석정보</a>
                     <Link to="/payment" state={{ticketInfo}} className="btn my-1">거래진행</Link>
                   </BtnArea>
-    
-                </>
+
               </Sheet.Content>
             </Sheet.Container >
             <Sheet.Backdrop />
             </Sheet>
 
-        </>
+        </BottomSheetWrap>
       );
 }
 

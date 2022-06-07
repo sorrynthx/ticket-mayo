@@ -74,16 +74,16 @@ function MyCargo() {
                 <Link to="/myCargo/My">
                     <Li>내 정보 <span><FontAwesomeIcon icon={faAngleRight} /></span></Li>
                 </Link>
-                <Link to="/loginNaver">
+                {/* <Link to="/loginNaver">
                     <Li>로그인 / 로그아웃 <span><FontAwesomeIcon icon={faAngleRight} /></span></Li>
-                </Link>
+                </Link> */}
             </Ul>
             
             <Caption>일반</Caption>
             <Ul>
-                <Link to="/myCargo/Theme">
+                {/* <Link to="/myCargo/Theme">
                     <Li>테마 <span><FontAwesomeIcon icon={faAngleRight} /></span></Li>
-                </Link>
+                </Link> */}
                 <Link to="/myCargo/Notice">
                     <Li>공지사항 <span><FontAwesomeIcon icon={faAngleRight} /></span></Li>
                 </Link>

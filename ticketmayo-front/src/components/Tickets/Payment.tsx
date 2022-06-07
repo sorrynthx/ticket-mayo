@@ -5,6 +5,11 @@ import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { Idata } from "./Type";
 
+const PaymentWrap = styled.div`
+    min-height: 100vh;
+    overflow-y: scroll;
+`;
+
 const PlayTitle = styled.h1`
   font-size: 1.4rem;
   line-height: 1.375;
@@ -57,7 +62,7 @@ function Payment() {
       }
     
     return (
-        <>
+        <PaymentWrap>
             
             <PlayTitle className="mt-4 mb-4 text-center">
                 {ticketInfo.title}
@@ -164,7 +169,7 @@ function Payment() {
                     <a onClick={payConf} className="btn my-1">입금완료</a>
                   </BtnArea>
              
-        </>
+        </PaymentWrap>
     );
 }
 

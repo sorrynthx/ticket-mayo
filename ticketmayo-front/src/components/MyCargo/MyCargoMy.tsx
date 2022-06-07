@@ -76,7 +76,7 @@ function MyCargoMy() {
                 </div>
                 <div className="text-center">
                     <h2 className="fw-700 font-sm text-grey-900 mt-3">@티켓마요</h2>
-                    <h4 className="text-grey-500 fw-500 mb-3 font-xsss mb-4 mt-2">ticket-mayo@naver.com</h4>
+                    <h4 className="text-grey-500 fw-500 mb-3 font-xsss mb-4 mt-2">dreammonsterkr@gmail.com</h4>
                 </div>
 
                 <h3 className="mt-3 mb-3 text-center">
