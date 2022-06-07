@@ -1,7 +1,8 @@
 import { Helmet } from "react-helmet-async";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import BottomSheet from "./BottomSheet";
+//import BottomSheet from "./BottomSheet";
+import Sheet from "react-modal-sheet";
 import { useState } from "react";
 
 const Container = styled.div`
@@ -158,7 +159,140 @@ const Ticket = styled.div`
      
 
 `; 
+const PayProcess = styled.div`
+  margin-bottom: 10px;
+  .multisteps-form__progress {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(0,1fr));
+    .multisteps-form__progress-btn {
+      transition-property: all;
+      transition-duration: .15s;
+      transition-timing-function: linear;
+      transition-delay: 0s;
+      position: relative;
+      padding-top: 20px;
+      color: #dee2e6;
+      text-indent: -9999px;
+      border: none;
+      background-color: transparent;
+      outline: none!important;
+      cursor: default;
+        &:before {
+          position: absolute;
+          top: 0;
+          left: 50%;
+          display: block;
+          width: 13px;
+          height: 13px;
+          content: "";
+          transform: translateX(-50%);
+          transition: all .15s linear 0s,transform .15s cubic-bezier(.05,1.09,.16,1.4) 0s;
+          border: 2px solid currentColor;
+          border-radius: 50%;
+          background-color: #fff;
+          box-sizing: border-box;
+          z-index: 3;
+      }
+    }
+    .multisteps-form__progress-btn.js-active {
+      color: #344767;
+      text-indent: 0;
+      &:before {
+        transform: translateX(-50%) scale(1.2);
+        background-color: currentColor;
+      }
+      &:nth-child(1):after {
+        display: block;
+        width: 0%;
+        height: 2px;
+      }
+      &:after {
+        position: absolute;
+        top: 5px;
+        left: calc(-50% - 13px / 2);
+        transition-property: all;
+        transition-duration: .15s;
+        transition-timing-function: linear;
+        transition-delay: 0s;
+        display: block;
+        width: 100%;
+        height: 2px;
+        content: "";
+        background-color: currentColor;
+        z-index: 1;
+      }
+    }
+  }
+`;
 
+const Image = styled.img`
+  max-width: 350px;
+`;
+
+const BtnArea = styled.div`
+  justify-content: space-around;
+  .btn {
+        display: block;
+        font-size: 12px;
+        //font-weight: bold;
+        background-color: #FFC2D1;
+        padding: 0 18px;
+        line-height: 30px;
+        border-radius: 15px;
+        color: #000;
+        text-decoration: none;
+        height: 30px;
+    }
+`;
+
+const BottomSheet = (props:any) => {
+    const ticketInfo = props.ticketInfo;
+    return (
+        <>
+          <Sheet isOpen={props.value} onClose={() => props.setOpen(false)} snapPoints={[0.5]}>
+            <Sheet.Container>
+              <Sheet.Header />
+              <Sheet.Content>
+                <>
+                  <PayProcess>
+                    <div className="col-12 mx-auto mt-1 mb-1">
+                      <div className="multisteps-form__progress">
+                        <button className="multisteps-form__progress-btn js-active" type="button" title="계좌이체">
+                          <span>1.계좌이체</span>
+                        </button>
+                        <button className="multisteps-form__progress-btn js-active" type="button" title="입금확인">
+                          <span>2.입금확인</span>
+                        </button>
+                        <button className="multisteps-form__progress-btn js-active" type="button" title="티켓발송">
+                          <span>3.확인연락</span>
+                        </button>
+                        <button className="multisteps-form__progress-btn js-active" type="button" title="티켓발송">
+                          <span>4.티켓발송</span>
+                        </button>
+                      </div>
+                    </div>
+                  </PayProcess>
+    
+                  <div className="text-center">
+                    <Image src={require('../../assets/img/payment.png')} className="rounded-3 w-100" />
+                  </div>
+    
+                  <BtnArea className="d-flex flex-stack flex-wrap mt-1">
+                    <a onClick={() => props.setOpen(false)} className="btn my-1">거래취소</a>
+                    <a href="https://stellar-guppy-450.notion.site/b11002e285fe4cc7ba6ee5a3f75dfdaa" target="_blank" className="btn my-1">절차확인</a>
+                    <a href="https://www.caci.or.kr/caci/main/contents.do?menuNo=200011" target="_blank" className="btn my-1">좌석정보</a>
+                    <Link to="/payment" state={{ticketInfo}} className="btn my-1">거래진행</Link>
+                  </BtnArea>
+    
+                </>
+              </Sheet.Content>
+            </Sheet.Container >
+            <Sheet.Backdrop />
+            </Sheet>
+
+        </>
+      );
+}
 
 const TicketDatas = [
     {
@@ -235,10 +369,10 @@ const TicketDatas = [
 ];
 
 
+
 function Tickets() {
     
     const [isOpen, setOpen] = useState(false);
-    const [ticketId, setTicketId] = useState(0);
     const [ticketInfo, setTicketInfo] = useState(TicketDatas[0]);
 
     return (
@@ -285,7 +419,7 @@ function Tickets() {
                                     (<button className="sold">판매완료</button>) :
                                     ticket.cnt === -1 ?
                                     (<button className="ing">거래 대기중...</button>) :
-                                    (<button className="buy" onClick={() => { return (setOpen(true), setTicketId(ticket.id), setTicketInfo(ticket)) }}>양도티켓 구매</button>)
+                                    (<button className="buy" onClick={() => { return (setOpen(true), setTicketInfo(ticket)) }}>양도티켓 구매</button>)
                                 }
                             </div>
                             
@@ -299,7 +433,6 @@ function Tickets() {
             {/* BottomSheet*/}
             <BottomSheet 
                 value={isOpen} 
-                ticketId={ticketId}
                 ticketInfo={ticketInfo}           
                 setOpen={setOpen}
             />

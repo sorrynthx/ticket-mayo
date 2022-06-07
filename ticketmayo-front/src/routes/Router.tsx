@@ -22,6 +22,7 @@ import Ticket from '../components/Play/PlayDetailTab/Ticket';
 import Restaurants from '../components/Play/PlayDetailTab/Restaurants';
 import Tickets from '../components/Tickets/Tickets';
 import HomeDetail from '../components/Home/HomeDetail';
+import Payment from '../components/Tickets/Payment';
 
 function Router() {
     return (       
@@ -35,6 +36,7 @@ function Router() {
                 <Route path="/home/Detail" element={<HomeDetail />} />
                 
 
+                {/* ----- 삭제 대기 start ----- */}
                 <Route path="/play" element={<Play />} />
                 <Route path="/play/interpark" element={<Interpark />} />
                 <Route path="/play/yes24" element={<Yes24 />} />
@@ -54,7 +56,7 @@ function Router() {
                     <Route path="ticket" element={<Ticket />} />   
                     <Route path="restaurants" element={<Restaurants />} />   
                 </Route>
-                
+                {/* ----- 삭제 대기 end ----- */}
                 
                 
 
@@ -64,10 +66,9 @@ function Router() {
 
 
                 <Route path="/tickets" element={<Tickets />} />
-
-
-
+                <Route path="/payment" element={<Payment />} />
                 <Route path="/community" element={<Community />} />
+
                 
                 <Route path="/myCargo" element={<MyCargo />} />
                 <Route path="/myCargo/My" element={<MyCargoMy />} />
