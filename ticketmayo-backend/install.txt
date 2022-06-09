@@ -19,3 +19,6 @@ npm i puppeteer
 
 # node-cron (스케줄러)
 npm install node-cron
+
+# npm install mysql (MYSQL 데이터베이스)
+npm install mysql

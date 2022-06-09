@@ -9,6 +9,7 @@
     "errorhandler": "^1.5.1",
     "express": "^4.18.1",
     "express-error-handler": "^1.1.0",
+    "mysql": "^2.18.1",
     "node-cron": "^3.0.0",
     "node-fetch": "^3.2.4",
     "puppeteer": "^14.1.1",

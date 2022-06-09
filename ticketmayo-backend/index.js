@@ -6,7 +6,12 @@ import path from 'path';
 const __dirname = path.resolve();
 import expressErrorHandler from 'express-error-handler';
 import fs from 'fs';
-import {a} from './Schedule/Scheduler.js';
+
+// 인터파크 오픈예정 공연 스케줄러
+import {openWaitPlay} from './Schedule/scheduler.js';
+
+// mysql DB 쿼리
+import {ticket_purchase, ticket_list} from './db/mysql.js';
 
 // Express 객체 생성
 const app = express();
@@ -61,6 +66,18 @@ router.post("/api_v0/:name", (req, res) => {
     else res.sendStatus(400);
 });
 
+// 양도티켓 리스트
+router.get("/api_v1/ticket/list", (req, res) => {
+    ticket_list(res);    
+});
+
+// 양도티켓 구매 쿼리
+router.post("/api_v1/ticket/purchase", (req, res) => {
+    // request 값
+    const userInfo = req.body;
+    // 쿼리 실행
+    ticket_purchase(userInfo, res);
+});
 
 // 인터파크 오픈예정 공연
 router.get("/api_v1/scraping1", (req, res) => {
