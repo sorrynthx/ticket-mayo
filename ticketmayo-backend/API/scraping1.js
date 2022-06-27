@@ -53,6 +53,9 @@ async function getOne(page, index) {
     // count (조회수)
     data.count = await page.$eval("body > div > div > div.list > div.table > table > tbody > tr:nth-child(" + index + ") > td.count", (data) => data.textContent);
 
+    // site (구매처)
+    data.site = '인터파크';
+
     // GO DETAIL
     await page.goto(data.link);
 

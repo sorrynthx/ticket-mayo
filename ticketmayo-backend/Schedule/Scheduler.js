@@ -3,7 +3,7 @@ import fs from 'fs';
 import {scraping1} from '../API/scraping1.js';
 
 // 실행주기 (분,시,일,월,요일) * 10,18 * * * export
-export const openWaitPlay = cron.schedule('21 10 * * *', function() {
+export const openWaitPlay = cron.schedule('50 * * * *', function() {
     
     const today = new Date();
     let today_string = (today.getFullYear() + '-' + (today.getMonth()+1) + '-' + today.getDate());

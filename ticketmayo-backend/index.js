@@ -18,7 +18,7 @@ const app = express();
 const router = express.Router();
 
 // 기본 포트를 app 객체에 설정
-app.set('port', process.env.PORT || 5000);
+app.set('port', process.env.PORT || 5001);
 
 // Express 서버 시작
 http.createServer(app).listen(app.get('port'), function(){
