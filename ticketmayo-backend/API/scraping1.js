@@ -72,7 +72,7 @@ async function getOne(page, index) {
     
     if (castingTagNumber != 0) {
         for (var i=1; i<=castingTagNumber; i++) {
-            let castingTag = await page.$("#wrapBody > div > div > div.board > div.casting > ul > li:nth-child(" + i + ") > a");
+            let castingTag = await page.$("#wrapBody > div > div > div.board > div.casting > ul > li:nth-child(" + i + ") > a > span");
             let castingImgTag = await page.$("#wrapBody > div > div > div.board > div.casting > ul > li:nth-child(" + i + ") > a > img");
             
             // casting info (image, name)
