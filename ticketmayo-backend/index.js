@@ -120,7 +120,7 @@ router.get("/api_v1/scraping1", (req, res) => {
                         console.log('/api_v1/scraping1 fs.readFile Error : ' + err);
                         result = "-1";
                     } else {
-                        console.log('/api_v1/scraping1 fs.readFile Success');
+                        //console.log('/api_v1/scraping1 fs.readFile Success');
                         result = data;
                     }
                     // 데이터 전달
