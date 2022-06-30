@@ -8,7 +8,10 @@ import expressErrorHandler from 'express-error-handler';
 import fs from 'fs';
 
 // 인터파크 오픈예정 공연 스케줄러
-import {openWaitPlay} from './Schedule/scheduler.js';
+import {openWaitPlay} from './schedule/scheduler.js';
+
+// 오픈예정 공연 한달 전 데이터 삭제
+import {openWaitPlayDelete} from './schedule/scheduler.js';
 
 // mysql DB 쿼리
 import {ticket_purchase, ticket_list} from './db/mysql.js';
@@ -82,19 +85,59 @@ router.post("/api_v1/ticket/purchase", (req, res) => {
 // 인터파크 오픈예정 공연
 router.get("/api_v1/scraping1", (req, res) => {
     
-    const today = new Date();
-    let today_string = (today.getFullYear() + '-' + (today.getMonth()+1) + '-' + today.getDate());
-    let fileLoc = './dataFile/';
-    let fileName = today_string + '.txt';
+    // 결과값 변수
+    let result = '';
 
-    fs.readFile( fileLoc+fileName, 'utf-8', function(err, data){
-        if (err) {
-            console.log('Error : ' + err);
-        }
-        console.log('파일 읽기 완료');
+    // 오늘
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = (today.getMonth()+1) >= 10 ? (today.getMonth()+1) : ('0' + (today.getMonth()+1));
+    const day = (today.getDate()) >= 10 ? today.getDate() : ('0' + today.getDate());
+
+    // 저장 경로
+    const dir = './openWait_dataFile/' + year + '-' + month + '/';
+
+    // 경로 + 파일명
+    let fileLoc = dir;
+    let fileName =  '';
+    
+    //Directory 존재 여부 체크
+    const directory = fs.existsSync(dir);
+
+    // 파일 목록에서 최근 파일 확인
+    if (directory) {
+        fs.readdir(fileLoc, (err, files) => {
+            if (err) {
+                console.log('/api_v1/scraping1 fs.readdir Error : ' + err);
+                console.log('Need to restart Server : ');
+            } else {
+                // 가장 최근 파일 이름
+                fileName = files[files.length-1];
+
+                // 파일 읽기
+                fs.readFile( (fileLoc + fileName), 'utf-8', function(err, data){
+                    if (err) {
+                        console.log('/api_v1/scraping1 fs.readFile Error : ' + err);
+                        result = "-1";
+                    } else {
+                        console.log('/api_v1/scraping1 fs.readFile Success');
+                        result = data;
+                    }
+                    // 데이터 전달
+                    res.header("Access-Control-Allow-Origin", "*");
+                    res.send(result);
+                });
+            }    
+        });
+
+    } else {
+        result = "-1";
+
+        // 데이터 전달
         res.header("Access-Control-Allow-Origin", "*");
-        res.send(data);
-    })
+        res.send(result);
+    }
+    
 });
     
     

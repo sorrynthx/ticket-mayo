@@ -2,7 +2,9 @@ import puppeteer from 'puppeteer';
 
 // 인터파크 스크래핑1 (오픈예정 공연) 
 export async function scraping1() {
-    
+    // data
+    let data = []; 
+
     try {
         // page initializing (false: show / true: hide)
         const browser = await puppeteer.launch({headless: false});
@@ -11,8 +13,7 @@ export async function scraping1() {
         // url
         await page.goto('http://ticket.interpark.com/webzine/paper/TPNoticeList_iFrame.asp?bbsno=0&pageno=1&stext=&KindOfGoods=&Genre=1&sort=opendate');
         
-        // data
-        let data = []; 
+       
         const number = await page.$$eval("body > div > div > div.list > div.table > table > tbody > tr", (data) => data.length);
         
         for (let index = 0; index < number; index++) {
@@ -30,6 +31,7 @@ export async function scraping1() {
 
     } catch (error) {
         console.log('error : ' + error);
+        return Promise.resolve(JSON.stringify(-1));
     }
 
 }
@@ -90,3 +92,5 @@ async function getOne(page, index) {
 
     return Promise.resolve(data);
 }
+
+//scraping1();
