@@ -10,7 +10,7 @@ const makeFolder = (dir) => {
 }
 
 // 실행주기 (분,시,일,월,요일) * 10,18 * * * export
-export const openWaitPlay = cron.schedule('32 * * * *', function() {
+export const openWaitPlay = cron.schedule('22 * * * *', function() {
     
     // 오늘
     const today = new Date();
